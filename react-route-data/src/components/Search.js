@@ -47,7 +47,7 @@ class Search extends Component {
 		// this.setState({ check: false});
 		}.bind(this),
 		error: function(xhr, resp, text){
-			console.log(xhr, resp, text);
+			// console.log(xhr, resp, text);
 		}
 	});
   }
@@ -119,7 +119,7 @@ class Search extends Component {
            // this.setState({
            //   msg : resp["error"]
            // })
-             console.log(xhr, resp, text);
+            // console.log(xhr, resp, text);
          }
      });
   }
@@ -162,13 +162,16 @@ class Search extends Component {
 					this.setState({
 						msg : response["success"]
 					})
+					this.setState({ value : '' });
+					// this.setState({ selectedData : response["success"] });
+
 					// this.handleChange();
 					this.getPHP();
 
 
 				}.bind(this),
 				error: function(xhr, resp, text){
-						console.log(xhr, resp, text);
+						// console.log(xhr, resp, text);
 				}
 		});
   }
@@ -184,13 +187,16 @@ class Search extends Component {
 		dataType:'json',
 		data : search_data,
         success : function(response) {
-		console.log("test selected student data : ",response);
+		//console.log("test selected student data : ",response);
 		this.setState({ selectedData : response });
+		this.setState({
+			msg : ''
+		})
 
 
         }.bind(this),
         error: function(xhr, resp, text){
-            console.log(xhr, resp, text);
+            // console.log(xhr, resp, text);
         }
     });
 
@@ -202,11 +208,13 @@ class Search extends Component {
 				dataType:'json',
 				data: this.state.statusType,
          success : function(response) {
- 	         this.setState({ data : response });
+					 // console.log("TEST DELETED : ",response);
+ 	         	this.setState({ options : response })
+					 // this.getPHP();
 
          }.bind(this),
          error: function(xhr, resp, text){
-             console.log(xhr, resp, text);
+             // console.log(xhr, resp, text);
          }
      });
    }
@@ -263,12 +271,17 @@ class Search extends Component {
 				</div>
 				<div className="col-lg-10 col-sm-10 col-md-10 col-xs-12">
 					<span className="h3">Select Student is : { value }</span>
+					<span className="h2">{ this.state.msg }</span>
 					<ReactTable data={ this.state.selectedData } style={{ textTransform: 'uppercase' }} columns={ columns }  />
 				</div>
 			</div>
 			<div className="row">
 			<Modal open={ this.state.open } onClose={this.onCloseModal}>
 			<form className="form-horizontal" onSubmit={this.handleSubmit}>
+			<div className="form-group">
+				<label className="control-label col-sm-3" name="fname">UserName data :</label>
+				<input type="text" className="border-0 col-sm-9" id="username"  name="UserName" value={this.state.UserName} onChange={this.inputHandleChangeAge.bind(this)} ref={node => (this.inputNode = node)} readOnly/>
+			</div>
 			<div className="form-group">
 				<label className="control-label col-sm-2" name="fname">First Name :</label>
 				<div className="col-sm-10">
@@ -299,12 +312,13 @@ class Search extends Component {
 						 <input type="text" className="form-control" id="age"  name="Age" value={this.state.Age} onChange={this.inputHandleChangeAge.bind(this)} ref={node => (this.inputNode = node)} />
 					 </div>
 				 </div>
-				 <div className="form-group">
-					 <label className="control-label col-sm-2"  htmlFor="uname">User Name :</label>
+				 <div className="form-group no-display">
+					 <label className="control-label col-sm-2" htmlFor="age">UserName :</label>
 					 <div className="col-sm-10">
-						 <input type="text" className="form-control" id="uname" name="UserName" value={this.state.UserName} onChange={this.inputHandleChangeUserName.bind(this)} ref={node => (this.inputNode = node)} />
+
 					 </div>
 				 </div>
+
 				 <div className="form-group">
 					<div className="col-sm-6 col-xs-6"><input type="submit" value="Submit"/></div>
 					<div className="col-sm-6 col-xs-6"><input type="reset" onClick={this.onCloseModal} value="Cancle"/></div>

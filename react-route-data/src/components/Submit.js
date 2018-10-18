@@ -3,9 +3,6 @@ import $ from "jquery";
 class Submit extends Component {
 	    constructor(props) {
     super(props);
-	this.editRow = this.editRow.bind(this);
-	this.deleteRow = this.deleteRow.bind(this);
-	this.updateSave = this.updateSave.bind(this);
 	this.state = {
 					FirstName: '',
 					LastName: '',
@@ -46,7 +43,7 @@ class Submit extends Component {
 		 document.form1.reset();
         }.bind(this),
         error: function(xhr, resp, text){
-            console.log(xhr, resp, text);
+            // console.log(xhr, resp, text);
         }
     });
 
@@ -64,63 +61,6 @@ class Submit extends Component {
 			this.setState({ [e.target.name]: e.target.checked });
 
       }
-  editRow(){
-		console.log("TEST-edit");
-		this.updateSave();
-		 $(this).each(function( key, value) {
-			console.log(key,'------',value);
-			console.log("Selected UN: ",value["state"]["value"]);
-			console.log("Selected DATA: ",value["state"]["selectedData"]);
-		 });
-  }
-  updateSave() {
-	  /*console.log("TEST");
-	   $(this).each(function( key, value) {
-		 console.log(key,'------',value);
-	  console.log("Selected : ",value["state"]["value"]);
-	 }); */
-
-	$(this).each(function( key, value) {
-		// console.log(key,'------',value);
-		// console.log("Selected : ",value["state"]["value"]);
-		var edit_form_data = {
-			selected: value["state"]["selectedData"],
-			qryType: "EDIT"
-		}
-// console.log("Selected data value: ",edit_form_data);
-    $.ajax({
-        url: "http://localhost/react-new-local/api/editStudent.php",
-        type : "POST",
-        data : edit_form_data,
-				dataType:'json',
-        success : function(response) {
-
-
-				this.setState({msg : response["success"]})
-
-          // empty form
-					this.setState({check: false});
-
-
-					document.form1.reset();
-
-        }.bind(this),
-        error: function(xhr, resp, text){
-
-            console.log(xhr, resp, text);
-        }
-    });
-});
-  }
-  deleteRow(){
-	   this.setState({ open: false });
-	    $(this).each(function( key, value) {
-		//console.log(key,'------',value);
-		console.log("Selected : ",value["state"]["value"]);
-
-	});
-
-  }
   render() {
     return (
       <React.Fragment>

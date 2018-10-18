@@ -8,6 +8,7 @@ import $ from "jquery";
 import 'react-table/react-table.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ class App extends Component {
   }
   inputHandleChange(event) {
       // this.setState({value: event.target.value});
-      console.log('A name was edited: ', event.target.value);
+      // console.log('A name was edited: ', event.target.value);
   }
   inputHandleChangeFirstName (event) {
 // console.log("FirstName : ",event.target.value);
@@ -103,7 +104,7 @@ class App extends Component {
            // this.setState({
            //   msg : resp["error"]
            // })
-             console.log(xhr, resp, text);
+             // console.log(xhr, resp, text);
          }
      });
 
@@ -159,7 +160,7 @@ class App extends Component {
 
         }.bind(this),
         error: function(xhr, resp, text){
-            console.log(xhr, resp, text);
+            // console.log(xhr, resp, text);
         }
     });
   };
@@ -184,7 +185,7 @@ class App extends Component {
 
        }.bind(this),
        error: function(xhr, resp, text){
-           console.log(xhr, resp, text);
+           // console.log(xhr, resp, text);
        }
    });
   }
@@ -198,7 +199,7 @@ class App extends Component {
 	         this.setState({ data : response });
         }.bind(this),
         error: function(xhr, resp, text){
-            console.log(xhr, resp, text);
+            // console.log(xhr, resp, text);
         }
     });
 
@@ -262,6 +263,10 @@ class App extends Component {
           <Modal open={ this.state.open } onClose={this.onCloseModal}>
           <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
+            <label className="control-label col-sm-3" name="fname">UserName data :</label>
+            <input type="text" className="border-0 col-sm-9" id="username"  name="UserName" value={this.state.UserName} onChange={this.inputHandleChangeAge.bind(this)} ref={node => (this.inputNode = node)} readOnly/>
+          </div>
+          <div className="form-group">
             <label className="control-label col-sm-2" name="fname">First Name :</label>
             <div className="col-sm-10">
               <input type="text" className="form-control" id="fname"  name="FirstName" value={this.state.FirstName} onChange={this.inputHandleChangeFirstName.bind(this)} ref={node => (this.inputNode = node)} />
@@ -289,12 +294,6 @@ class App extends Component {
                <label className="control-label col-sm-2" htmlFor="age">Age :</label>
                <div className="col-sm-10">
                  <input type="text" className="form-control" id="age"  name="Age" value={this.state.Age} onChange={this.inputHandleChangeAge.bind(this)} ref={node => (this.inputNode = node)} />
-               </div>
-             </div>
-             <div className="form-group">
-               <label className="control-label col-sm-2"  htmlFor="uname">User Name :</label>
-               <div className="col-sm-10">
-                 <input type="text" className="form-control" id="uname" name="UserName" value={this.state.UserName} onChange={this.inputHandleChangeUserName.bind(this)} ref={node => (this.inputNode = node)} />
                </div>
              </div>
              <div className="form-group">
