@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
-import Navigation from './components/navigation' 
+import ScrollApp from './components/scroll';
 import './css/index.css';
 
-class Header extends Component {
+class Footer extends Component {
 /*   active = {
     fontWeight: "bold",
     color: "red"
@@ -13,9 +12,15 @@ class Header extends Component {
       <div className="container-fluid">
         <div className="row">
 			<div className="text-center col-lg-12 col-sm-12 col-md-12 col-xs-12">
-				<header className="App-header">
-				<Navigation />
-				</header>
+				<footer className="App-footer">
+				
+				<ScrollApp />
+				</footer>
+			</div>
+		</div>
+		<div className="row ">
+			<div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+			
 			</div>
 		</div>
 	  </div>
@@ -23,4 +28,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Footer;
