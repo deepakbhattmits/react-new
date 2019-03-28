@@ -15,6 +15,7 @@ function WarningBanner(props) {
   if (!props.warn) {
     return null;
   }
+  
 
   return (
     <div className="warning">
@@ -326,6 +327,7 @@ class App extends Component {
       	}
       ]
     return (
+   
 		<div className="container-fluid">
     <div className="row">
       <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -333,6 +335,7 @@ class App extends Component {
         <button onClick={this.handleToggleClick}>
           {this.state.showWarning ? 'Hide' : 'Show'}
         </button>
+        {this.REACT_VERSION}
       </div>
     </div>
 			<div className="row">
