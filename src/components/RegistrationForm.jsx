@@ -62,7 +62,7 @@ class RegistrationForm extends Component {
             formIsValid = false
            errors['password'] = 'Please enter password'
         }
-        if(typeof fields['password'] !== 'undefined') {
+        if(typeof fields['password'] !== 'undefined') {   
 
             var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
             if(!strongRegex.test(fields['password'])) {
