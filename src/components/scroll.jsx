@@ -8,19 +8,19 @@ class ScrollButton extends React.Component {
       intervalId: 0
     };
   }
-  scrollStep() {
+  scrollStep = () => {
     if (window.pageYOffset === 0) {
       clearInterval(this.state.intervalId);
     }
     window.scroll(0, window.pageYOffset - this.props.scrollStepInPx); // here the props
   }
-  scrollToTop() {
+  scrollToTop = () => {
     let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs); // here the props
     this.setState({ intervalId: intervalId });
   }
   render() {
     return <button title='Back to top' className='scroll'
-      onClick={() => { this.scrollToTop(); }}>
+      onClick={ this.scrollToTop }>
       <i className='fa fa-angle-up'></i>
       <span className='text-uppercase'>top</span>
     </button>;

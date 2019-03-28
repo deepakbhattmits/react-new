@@ -27,16 +27,16 @@ function WarningBanner(props) {
 class App extends Component {
   constructor(props) {
   super(props);
-	this.getData = this.getData.bind(this);
-	this.deleteRow = this.deleteRow.bind(this);
-  this.inputHandleChange = this.inputHandleChange.bind(this);
-  this.inputHandleChangename = this.inputHandleChangename.bind(this);
-  this.inputHandleChangegender = this.inputHandleChangegender.bind(this);
+	// this.getData = this.getData.bind(this);
+	// this.deleteRow = this.deleteRow.bind(this);
+  // this.inputHandleChange = this.inputHandleChange.bind(this);
+  // this.inputHandleChangename = this.inputHandleChangename.bind(this);
+  // this.inputHandleChangegender = this.inputHandleChangegender.bind(this);
 //   this.inputHandleChangecreate_date = this.inputHandleChangecreate_date.bind(this);
-  this.inputHandleChangephone = this.inputHandleChangephone.bind(this);
-  this.inputHandleChangeemail = this.inputHandleChangeemail.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.handleToggleClick = this.handleToggleClick.bind(this);
+  // this.inputHandleChangephone = this.inputHandleChangephone.bind(this);
+  // this.inputHandleChangeemail = this.inputHandleChangeemail.bind(this);
+  // this.handleSubmit = this.handleSubmit.bind(this);
+  // this.handleToggleClick = this.handleToggleClick.bind(this);
 	this.state = {
         _id: '',
         name: '',
@@ -52,58 +52,58 @@ class App extends Component {
 		   };
 
   }
-  handleToggleClick() {
+  handleToggleClick = () => {
     this.setState(state => ({
       showWarning: !state.showWarning
     }));
   }
-  inputHandleChange(event) {
-      // this.setState({value: event.target.value});
-      // console.log('A name was edited: ', event.target.value);
+  inputHandleChange = (e) => {
+      // this.setState({value: e.target.value});
+      // console.log('A name was edited: ', e.target.value);
   }
-  inputHandleChangename (event) {
- console.log("name : ",event.target.value);
+  inputHandleChangename = (e) => {
+ console.log("name : ",e.target.value);
     this.setState({
-      name : event.target.value
+      name : e.target.value
     })
   }
-  inputHandleChangeemail (event) {
+  inputHandleChangeemail = (e) => {
         this.setState({
-          email : event.target.value
+          email : e.target.value
         })
       }
-  inputHandleChangegender (event) {
+  inputHandleChangegender = (e) => {
     this.setState({
-      gender : event.target.value
+      gender : e.target.value
     })
   }
-//   inputHandleChangecreate_date (event) {
+//   inputHandleChangecreate_date = (e) => {
 //     this.setState({
-//       create_date : event.target.value
+//       create_date : e.target.value
 //     })
 //   }
-  inputHandleChangephone (event) {
+  inputHandleChangephone = (e) => {
     this.setState({
-      phone : event.target.value
+      phone : e.target.value
     })
     }
 
-  handleSubmit(event) {
-  event.preventDefault();
+  handleSubmit = (e) => {
+  e.preDefault();
     // let edited_data = {
-    //     name        : event.target.name.value,
-    //     gender      : event.target.gender.value,
-    //     // create_date : event.target.create_date.value,
-    //     Mobile      : event.target.phone.value,
-    //     email       : event.target.email.value,
+    //     name        : e.target.name.value,
+    //     gender      : e.target.gender.value,
+    //     // create_date : e.target.create_date.value,
+    //     Mobile      : e.target.phone.value,
+    //     email       : e.target.email.value,
     //     // statusType  : 'active',
     //     // qryType     : "EDIT"
     // } 
     this.setState({ 
-      name        : event.target.name.value,
-      gender      : event.target.gender.value,
-      Mobile      : event.target.phone.value,
-      email       : event.target.email.value
+      name        : e.target.name.value,
+      gender      : e.target.gender.value,
+      Mobile      : e.target.phone.value,
+      email       : e.target.email.value
     });
    console.log("TEST : ", this.state._id );
    fetch('http://localhost:8080/api/contacts/:'+this.state._id, {
@@ -154,19 +154,19 @@ class App extends Component {
       msg : ''
     })
   };
-     handleChange = (event) => {
+     handleChange = (e) => {
        this.onOpenModal();
-       console.log("home page select row : ",event);
-       // console.log("type :",event);
-            //for (let i = 0; i < event.length; i++) {
+       console.log("home page select row : ",e);
+       // console.log("type :",e);
+            //for (let i = 0; i < e.length; i++) {
               // console.log("simple DATA :",this.state.selectedData[i]["name"]);
                 this.setState({
-                    _id          : event["_id"],
-                    name        : event["name"] ,
-                    email       : event["email"] ,
-                    phone       : event["phone"] ,
-                    gender      : event["gender"] ,
-                    create_date : event["create_date"]
+                    _id          : e["_id"],
+                    name        : e["name"] ,
+                    email       : e["email"] ,
+                    phone       : e["phone"] ,
+                    gender      : e["gender"] ,
+                    create_date : e["create_date"]
               })
                 // console.log("new DATA :",this.state.name,"-",this.state.Lastname,"-",this.state.gender,"-",this.state.create_date,"-",this.state.Age,"-",this.state.Username);
 
@@ -174,9 +174,9 @@ class App extends Component {
             //}
        
 
-   this.setState({ value: event["Username"] });
+   this.setState({ value: e["Username"] });
   //  var search_data = {
-	// 		Username: event["Username"],
+	// 		Username: e["Username"],
 	// 		qryType: "SEARCH"
 	// 	}
     // console.log("home page select Username : ",search_data);
@@ -214,10 +214,10 @@ class App extends Component {
 //     });
   };
 
-  deleteRow(event){
-	 // console.log("WANT DELETE : ",event["Username"]);
+  deleteRow = (e) => {
+	 // console.log("WANT DELETE : ",e["Username"]);
   //  let delete_data = {
-  //    Username : event["Username"],
+  //    Username : e["Username"],
   //    statusType: "deactive",
   //    qryType: "DELETE"
   //  }
@@ -239,7 +239,7 @@ class App extends Component {
 //    });
   }
 
- getData(){
+ getData = () => {
     // fetch('http://localhost:8080/api/contacts',)
     fetch('http://starlord.hackerearth.com/movies',)
           .then(response => response.json())

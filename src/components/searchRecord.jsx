@@ -15,10 +15,10 @@ import img7 from '../images/image7.jpg';
 class SearchRecord extends Component {
     constructor(props) {
         super(props);
-        this.onChangeInput = this.onChangeInput.bind(this);
+        // this.onChangeInput = this.onChangeInput.bind(this);
         // this.onChangeFilter = this.onChangeFilter.bind(this);
         // this.getInitialState = this.getInitialState.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
         this.state = {
             data: [],
             query: "",
@@ -36,23 +36,23 @@ responsive = {
   1024: { items: 4 },
   1360: { items: 6 },
 };
-getData(){
+getData = () => {
   fetch('http://starlord.hackerearth.com/movies',)
 		.then(response => response.json())
 		
 		.then((json) => {
-	//  console.log('test 0 : ',json);             
+	    // console.log('test 0 : ',json);             
             this.setState({ data : json });
             // console.log('test 1 : ',this.state.data);     
  
 		}).catch(function(error) {
-			console.log("error:", error);
+			// console.log("error:", error);
 });
 }
-    onChangeInput (event) {
+    onChangeInput = (e) => {
       var result = "";
-      const query = event.target.value;
-      console.log("test serach :",event.target.value);
+      const query = e.target.value;
+      // console.log("test serach :",e.target.value);
       var updatedList = this.state.data;
         if(query !== '') {
 
@@ -98,19 +98,19 @@ getData(){
           this.setState({ data: this.state.data });
         } 
       }
-      // onChangeFilter (event) {
-      //   console.log("TEST : ",event.target);
+      // onChangeFilter (e) {
+      //   // console.log("TEST : ",e.target);
       // }
 
-      getInitialState (){
+      getInitialState = () => {
         return this.state.selectValue;
     }
-    handleChange (e){
+    handleChange = (e) => {
       this.setState({selectValue:e.target.value});
     }
    
 render() {
-  const handleOnDragStart = e => e.preventDefault()
+  const handleOnDragStart = e => e.preDefault()
     const { data } = this.state;
 
     const style = {

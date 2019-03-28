@@ -9,15 +9,15 @@ import $ from "jquery";
 class Search extends Component {
 	  constructor(props) {
     super(props);
-	this.editRow = this.editRow.bind(this);
-	this.deleteRow = this.deleteRow.bind(this);
-  this.inputHandleChangeFirstName = this.inputHandleChangeFirstName.bind(this);
-  this.inputHandleChangeLastName = this.inputHandleChangeLastName.bind(this);
-  this.inputHandleChangeHomeTown = this.inputHandleChangeHomeTown.bind(this);
-  this.inputHandleChangeJob = this.inputHandleChangeJob.bind(this);
-  this.inputHandleChangeAge = this.inputHandleChangeAge.bind(this);
-  this.inputHandleChangeUserName = this.inputHandleChangeUserName.bind(this);
-	this.handleSubmit = this.handleSubmit.bind(this);
+	// this.editRow = this.editRow.bind(this);
+	// this.deleteRow = this.deleteRow.bind(this);
+  // this.inputHandleChangeFirstName = this.inputHandleChangeFirstName.bind(this);
+  // this.inputHandleChangeLastName = this.inputHandleChangeLastName.bind(this);
+  // this.inputHandleChangeHomeTown = this.inputHandleChangeHomeTown.bind(this);
+  // this.inputHandleChangeJob = this.inputHandleChangeJob.bind(this);
+  // this.inputHandleChangeAge = this.inputHandleChangeAge.bind(this);
+  // this.inputHandleChangeUserName = this.inputHandleChangeUserName.bind(this);
+	// this.handleSubmit = this.handleSubmit.bind(this);
 	this.state = {
 					FirstName: '',
 					LastName: '',
@@ -66,50 +66,50 @@ class Search extends Component {
 }
 
 
-	// inputHandleChange(event) {
-  //     // this.setState({value: event.target.value});
-  //     console.log('A name was edited: ', event.target.value);
+	// inputHandleChange(e) {
+  //     // this.setState({value: e.target.value});
+  //     console.log('A name was edited: ', e.target.value);
   // }
-  inputHandleChangeFirstName (event) {
-// console.log("FirstName : ",event.target.value);
+  inputHandleChangeFirstName = (e) => {
+// console.log("FirstName : ",e.target.value);
     this.setState({
-      FirstName : event.target.value
+      FirstName : e.target.value
     })
   }
-  inputHandleChangeLastName (event) {
+  inputHandleChangeLastName = (e) => {
     this.setState({
-      LastName : event.target.value
+      LastName : e.target.value
     })
   }
-  inputHandleChangeHomeTown (event) {
+  inputHandleChangeHomeTown = (e) => {
     this.setState({
-      HomeTown : event.target.value
+      HomeTown : e.target.value
     })
   }
-  inputHandleChangeJob (event) {
+  inputHandleChangeJob = (e) => {
     this.setState({
-      Job : event.target.value
+      Job : e.target.value
     })
   }
-  inputHandleChangeAge (event) {
+  inputHandleChangeAge = (e) => {
     this.setState({
-      Age : event.target.value
+      Age : e.target.value
     })
     }
-  inputHandleChangeUserName (event) {
+  inputHandleChangeUserName = (e) => {
     this.setState({
-      UserName : event.target.value
+      UserName : e.target.value
     })
   }
-  handleSubmit(event) {
-  event.preventDefault();
+  handleSubmit= (e) => {
+  e.preDefault();
     let edited_data = {
-      FirstName : event.target.FirstName.value,
-      LastName  : event.target.LastName.value,
-      HomeTown  : event.target.HomeTown.value,
-      Job       : event.target.Job.value,
-      Age       : event.target.Age.value,
-      UserName  : event.target.UserName.value,
+      FirstName : e.target.FirstName.value,
+      LastName  : e.target.LastName.value,
+      HomeTown  : e.target.HomeTown.value,
+      Job       : e.target.Job.value,
+      Age       : e.target.Age.value,
+      UserName  : e.target.UserName.value,
   		statusType: 'active',
       qryType   : "EDIT"
     }
@@ -148,22 +148,22 @@ class Search extends Component {
       msg : ''
     })
   }
-	editRow(event){
-		// console.log("TEST-edit",event["FirstName"]);
+	editRow = (e) => {
+		// console.log("TEST-edit",e["FirstName"]);
 		this.onOpenModal();
 		this.setState({
-						FirstName	: event["FirstName"],
-						LastName	: event["LastName"],
-						HomeTown	: event["HomeTown"],
-						Job				: event["Job"],
-						Age				: event["Age"],
-						UserName	: event["UserName"]
+						FirstName	: e["FirstName"],
+						LastName	: e["LastName"],
+						HomeTown	: e["HomeTown"],
+						Job				: e["Job"],
+						Age				: e["Age"],
+						UserName	: e["UserName"]
 					})
   }
-  deleteRow(event){
-		// console.log("WANT DELETE : ",event["UserName"]);
+  deleteRow = (e) => {
+		// console.log("WANT DELETE : ",e["UserName"]);
 		let delete_data = {
-			UserName : event["UserName"],
+			UserName : e["UserName"],
 			statusType: "deactive",
 			qryType: "DELETE"
 		}
@@ -189,11 +189,11 @@ class Search extends Component {
 				}
 		});
   }
- 	handleChange = (event) => {
-	 this.setState({ value: event.target.value });
-	 // console.log("test selected student data : ", event.target.value);
+ 	handleChange = (e) => {
+	 this.setState({ value: e.target.value });
+	 // console.log("test selected student data : ", e.target.value);
    var search_data = {
-		movie_title: event.target.value,
+		movie_title: e.target.value,
 		}
 		console.log('get the value :',this.state.options);
 		for (var i=0;i<this.state.options.length;i++) {
