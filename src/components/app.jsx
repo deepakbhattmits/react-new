@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 import ReactTable from "react-table";
 
 // import $ from "jquery";
@@ -7,6 +8,8 @@ import ReactTable from "react-table";
 import Modal from 'react-responsive-modal';
 
 import 'react-table/react-table.css';
+
+import Child from './Child';
 
 
 
@@ -48,10 +51,12 @@ class App extends Component {
         selectedData : [],
         msg: '',
         open: false,
-        showWarning: true
+        showWarning: true,
+        propsExample: 'Deepak'
 		   };
 
   }
+  
   handleToggleClick = () => {
     this.setState(state => ({
       showWarning: !state.showWarning
@@ -298,7 +303,7 @@ class App extends Component {
 		// 		Cell: props => <div>&nbsp;<button  onClick={ (e) => {    this.handleChange(props.original);  }}>Edit</button>&nbsp;&nbsp;<button  onClick={ (e) => {   this.deleteRow(props.original);  }} >Delete</button>&nbsp;</div>
     //   }
     // ]
-
+   
 
     const columns = [
       	{
@@ -329,6 +334,17 @@ class App extends Component {
     return (
    
 		<div className="container-fluid">
+    <div className="row">
+     
+    <Child name={this.state.propsExample} >
+      <h1>props childrens</h1>
+      <h2>props childrens</h2>
+      <h3>props childrens</h3>
+      <h4>props childrens</h4>
+      <h5>props childrens</h5>
+      <h6>props childrens</h6>
+    </Child>
+    </div>
     <div className="row">
       <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
       <WarningBanner warn={this.state.showWarning} />

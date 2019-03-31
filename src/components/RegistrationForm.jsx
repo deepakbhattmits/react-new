@@ -78,17 +78,17 @@ class RegistrationForm extends Component {
                 <div id="register" className="register-form">
                 <h3>Registration page</h3>
                 <form method="post"  name="userRegistrationForm" onSubmit={this.submitForm} >
-                    <label>Name</label>
-                    <input type="text" name="username" onChange={this.handleChange} value={this.state.fields.username || ''} />
+                    <label htmlFor="username">Name</label>
+                    <input type="text" id='username' name="username" onChange={this.handleChange} value={this.state.fields.username || ''} />
                     <div className="errorMsg">{ this.state.errorMessages.username }</div>
-                    <label>Email ID:</label>
-                    <input type="text" name="emailid"  onChange={this.handleChange} value={this.state.fields.emailid || ''} />
+                    <label htmlFor="emailid">Email ID:</label>
+                    <input type="text" id="emailid" name="emailid"  onChange={this.handleChange} value={this.state.fields.emailid || ''} />
                     <div className="errorMsg">{ this.state.errorMessages.emailid }</div>
-                    <label>Mobile No:</label>
-                    <input type="text" name="mobileno"  onChange={this.handleChange} value={this.state.fields.mobileno || ''} />
+                    <label  htmlFor="mobileno">Mobile No:</label>
+                    <input type="text" id="mobileno" name="mobileno"  onChange={this.handleChange} value={this.state.fields.mobileno || ''} />
                     <div className="errorMsg">{ this.state.errorMessages.mobileno }</div>
-                    <label>Password</label>
-                    <input type="password" name="password" onChange={this.handleChange} value={this.state.fields.password || ''} />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" onChange={this.handleChange} value={this.state.fields.password || ''} />
                     <div className="errorMsg">{ this.state.errorMessages.password }</div>
                     <input type="submit" className="button"  value="Register"/>
                 </form>

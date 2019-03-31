@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from '../images/logo.png';
 
 
@@ -20,7 +20,7 @@ class Navigation extends  React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <NavLink exact to="/" className ='nav-menu'>    Home Page      </NavLink>
+                <Link exact to="/" className ='nav-menu'>    Home Page      </Link>
               </li>
               <li className="nav-item">
                 <NavLink to="/search" className ='nav-menu'>   Search data     </NavLink>

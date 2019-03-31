@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import '../assets/less/custom.less';
 
-class ScrollButton extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+class ScrollButton extends Component {
+
+    state = {
       intervalId: 0
     };
-  }
+
   scrollStep = () => {
     if (window.pageYOffset === 0) {
       clearInterval(this.state.intervalId);
@@ -28,7 +27,7 @@ class ScrollButton extends React.Component {
 }
 
 
-class ScrollApp extends React.Component {
+class ScrollApp extends Component {
 
   // eslint-disable-next-line class-methods-use-this
   componentDidMount() {
