@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from '../images/logo.png';
+import GoogleAuth from './GoogleAuth';
 
 
 
@@ -20,7 +21,7 @@ class Navigation extends  React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link exact to="/" className ='nav-menu'>    Home Page      </Link>
+                <NavLink exact to="/" className ='nav-menu'>    Home Page      </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/search" className ='nav-menu'>   Search data     </NavLink>
@@ -39,6 +40,7 @@ class Navigation extends  React.Component {
               <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <GoogleAuth />
           </div>
         </nav>
       )

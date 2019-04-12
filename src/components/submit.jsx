@@ -50,7 +50,7 @@ class Submit extends Component {
 		 e.preventDefault();
 
       }
-  changeHandler = (e) => {
+  changeHandler = (e) => { 
 
 
 		if(e.target.name !== 'check')

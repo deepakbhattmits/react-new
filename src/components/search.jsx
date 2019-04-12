@@ -56,12 +56,12 @@ class Search extends Component {
 		.then(response => response.json())
 		
 		.then((json) => {
-	 console.log('pre test : ',json);             
+	 // console.log('pre test : ',json);             
 			this.setState({ options : json });
 			// console.log(this.state.selectedData);
  
 		}).catch(function(error) {
-			console.log("error:", error);
+			// console.log("error:", error);
 });
 }
 
@@ -195,10 +195,10 @@ class Search extends Component {
    var search_data = {
 		movie_title: e.target.value,
 		}
-		console.log('get the value :',this.state.options);
+		// console.log('get the value :',this.state.options);
 		for (var i=0;i<this.state.options.length;i++) {
 			if(search_data['movie_title'] === this.state.options[i]['movie_title']) {
-					console.log("search row : ",this.state.options[i]);
+				//	console.log("search row : ",this.state.options[i]);
 				 this.setState({ selectedData : this.state.options[i] });
 				 // var resp = JSON.parse(this.state.options[i]);
 				 // console.log("TEST : ",resp);
@@ -212,12 +212,12 @@ class Search extends Component {
 		.then(response => response.json())
 		
 		.then((json) => {
-	 console.log('pre test : ',json, "TEST : ",json.data);             
+	 // console.log('pre test : ',json, "TEST : ",json.data);             
 			
 			this.setState({ options : json })
  
 		}).catch(function(error) {
-			console.log("error:", error);
+			// console.log("error:", error);
 });
    }
   render() {

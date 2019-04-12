@@ -4,7 +4,7 @@ class RegistrationForm extends Component {
     state = {fields:{},errorMessages:{}};
     handleChange = (e) => {
         let fields = this.state.fields
-        console.log('change in ',e.target.name)
+        // console.log('change in ',e.target.name)
         fields[e.target.name] = e.target.value;
         this.setState({
             fields
@@ -13,7 +13,7 @@ class RegistrationForm extends Component {
     submitForm = (e) => {
         e.preventDefault();
         if(this.validateForm()) {
-            console.log('Form Submited',this.state.fields);
+            // console.log('Form Submited',this.state.fields);
         }
     }
     validateForm = () => {

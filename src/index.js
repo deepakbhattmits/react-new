@@ -4,17 +4,18 @@ import './css/index.css';
 import './css/main.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
-import {BrowserRouter as Router}  from 'react-router-dom';
-import ReactRouter from './router/routes';
+import ReactRouter from './router/ReactRouter';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 
+const store = createStore(
+    reducers
+    );
 
-
-
-
-
-ReactDOM.render(<Router>
-
-    <ReactRouter/>
-</Router>
+ReactDOM.render(
+    <Provider store={ store }>
+        <ReactRouter/>
+    </Provider>
     ,
     document.getElementById('root'));

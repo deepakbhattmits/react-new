@@ -14,10 +14,12 @@
     "react-dom": "^16.8.5",
     "react-fontawesome": "^1.6.1",
     "react-less-watcher": "^1.1.4",
+    "react-redux": "^7.0.1",
     "react-responsive-modal": "^3.4.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-table": "^6.8.6",
+    "redux": "^4.0.1",
     "update": "^0.7.4"
   },
   "scripts": {

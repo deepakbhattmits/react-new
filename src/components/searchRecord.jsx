@@ -127,49 +127,8 @@ render() {
     return (
         <React.Fragment>
           <div className="row">
-          <div className="col-lg-3 col-lg-offset-7 col-sm-3 col-sm-offset-7 col-md-3 col-md-offset-7 col-xs-10">
-          <div className="searchForm">
-        <form>
-          <input
-            className="form-control" type="search" placeholder="Search for..."
-            onChange={this.onChangeInput}
-            />
-        </form>
-        <div>{this.state.filteredData.map(i => <p>{i.name}</p>)}</div>
-      </div>
-      </div>
-      <div className="col-lg-2 col-sm-2 col-md-3 col-xs-2">
-        {/* <div className="dropdown">
-          <button className="btn btn-secondary dropdown-toggle border-0 bg-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i className="fa fa-filter fa-2x text-dark" aria-hidden="true"></i>
-          </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="top-start">
-            <span onClick={this.onChangeFilter} className="dropdown-item" value="Action">Action</span>
-            <span onClick={this.onChangeFilter} className="dropdown-item" value="Another Action">Another action</span>
-            <span onClick={this.onChangeFilter} className="dropdown-item" value="Something else here">Something else here</span>
-          </div>
-        </div> */}
-
-        <div>
-        <i className="fa fa-filter fa-2x text-dark" aria-hidden="true"></i>
-      <select className="border-0 bg-white"
-        value={this.state.selectValue} 
-        onChange={this.handleChange} 
-      >
-       <option value="-- select any field --">-- select any field --</option>
-       <option value="director_name">director_name</option>
-        <option value="movie_title">movie_title</option>
-        <option value="country">country</option>
-        <option value="country">plot_keywords</option>
-        <option value="country">title_year</option>
-        <option value="country">content_rating</option>
-      </select>
-      <p>{message}</p>
-      </div> 
-      </div>
-
-      <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-      <AliceCarousel mouseDragEnabled >
+          <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+        <AliceCarousel mouseDragEnabled >
       <Image
   src={img1}
   width={200}
@@ -213,63 +172,42 @@ render() {
   style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class" 
 />
     </AliceCarousel>
-      <div style={style.prodImg}>
-      <Image
-  src={img1}
-  width={200}
-  height={200}
-  style={style.image}  
-/>
-</div>
-<div style={style.prodImg}>
-      <Image
-  src={img2}
-  width={200}
-  height={200}
-  style={style.image} 
-/>
-</div>
-<div style={style.prodImg}>
-      <Image
-  src={img3}
-  width={200}
-  height={200}
-  style={style.image}
-/>
-</div>
-<div style={style.prodImg}>
-      <Image
-  src={img4}
-  width={200}
-  height={200}
-  style={style.image}
-/>
-</div>
-<div style={style.prodImg}>
-      <Image
-  src={img5}
-  width={200}
-  height={200}
-  style={style.image}
-/>
-</div>
-<div style={style.prodImg}>
-      <Image
-  src={img6}
-  width={200}
-  height={200}
-  style={style.image}
-/>
-</div>
-<div style={style.prodImg}>
-      <Image
-  src={img7}
-  width={200}
-  height={200}
-  style={style.image}
-/>
-</div>
-</div>
+
+      </div>
+      </div>
+                    <div className="row">
+          <div className="col-lg-3 col-lg-offset-7 col-sm-3 col-sm-offset-7 col-md-3 col-md-offset-7 col-xs-10">
+          <div className="searchForm">
+        <form>
+          <input
+            className="form-control" type="search" placeholder="Search for..."
+            onChange={this.onChangeInput}
+            />
+        </form>
+        <div>{this.state.filteredData.map(i => <p>{i.name}</p>)}</div>
+      </div>
+      </div>
+      <div className="col-lg-2 col-sm-2 col-md-3 col-xs-2">
+
+        <div>
+        <i className="fa fa-filter fa-2x text-dark" aria-hidden="true"></i>
+      <select className="border-0 bg-white"
+        value={this.state.selectValue} 
+        onChange={this.handleChange} 
+      >
+       <option value="-- select any field --">-- select any field --</option>
+       <option value="director_name">director_name</option>
+        <option value="movie_title">movie_title</option>
+        <option value="country">country</option>
+        <option value="country">plot_keywords</option>
+        <option value="country">title_year</option>
+        <option value="country">content_rating</option>
+      </select>
+      <p>{message}</p>
+      </div> 
+      </div>
+
+     
           </div>
           <div className="row">
           <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
