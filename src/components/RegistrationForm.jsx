@@ -17,7 +17,7 @@ class RegistrationForm extends Component {
         }
     }
     validateForm = () => {
-        let fields = this.state.fields; 
+        let fields = this.state.fields;   
         let errors = {};
         let formIsValid = true;
         if(!fields['username']) {
