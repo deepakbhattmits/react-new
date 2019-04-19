@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class RegistrationForm extends Component {
     state = {fields:{},errorMessages:{}};
@@ -73,10 +74,16 @@ class RegistrationForm extends Component {
         return formIsValid;
     }
     render (){
+        const { isSignedIn } = this.props.auth;
+        console.log(`user is isSignedIn : ${isSignedIn}` );
         return (
             <div>
                 <div id="register" className="register-form">
-                <h3>Registration page</h3>
+                { isSignedIn
+                ? <h3>Registration page with user</h3> 
+                :
+                <h3>Registration page without user</h3>
+                }
                 <form method="post"  name="userRegistrationForm" onSubmit={this.submitForm} >
                     <label htmlFor="username">Name</label>
                     <input type="text" id='username' name="username" onChange={this.handleChange} value={this.state.fields.username || ''} />
@@ -96,5 +103,10 @@ class RegistrationForm extends Component {
             </div>
         );
     }
+};
+const mapStatetoProps = ( state ) => {
+    return {
+        auth: state.auth
+    }
 }
-export default RegistrationForm;
+export default connect(mapStatetoProps, null)(RegistrationForm);

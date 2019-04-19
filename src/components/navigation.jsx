@@ -35,6 +35,9 @@ class Navigation extends  React.Component {
               <li className="nav-item">
                 <NavLink exact to="/register" className ='nav-menu'>    Register      </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink exact to="/SimpleForm" className ='nav-menu'>    SimpleForm      </NavLink>
+              </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />

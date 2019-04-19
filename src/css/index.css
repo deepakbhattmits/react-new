@@ -94,7 +94,6 @@ body {
 }
 .nav-item {
   color: #000;
-  padding: 10px;
   border-radius: 3px;
   text-align: left;
   margin: 0 5px;
@@ -102,6 +101,10 @@ body {
   transform: perspective(1px) translateZ(0);
   position: relative;
   background: #e1e1e1;
+}
+.nav-item a {
+  padding: 10px;
+  display: inline-block;
 }
 .nav-item.active {
     background-color: #444;
