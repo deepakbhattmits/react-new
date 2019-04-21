@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
@@ -98,9 +98,6 @@ getData = () => {
           this.setState({ data: this.state.data });
         } 
       }
-      // onChangeFilter (e) {
-      //   // console.log("TEST : ",e.target);
-      // }
 
       getInitialState = () => {
         return this.state.selectValue;
@@ -125,7 +122,7 @@ render() {
     };
     var message='You selected '+this.state.selectValue;
     return (
-        <React.Fragment>
+        <Fragment>
           <div className="row">
           <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
         <AliceCarousel mouseDragEnabled >
@@ -249,7 +246,7 @@ render() {
        </div>
         
         
-        </React.Fragment>
+        </Fragment>
     )
 
 }

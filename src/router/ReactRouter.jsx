@@ -9,6 +9,8 @@ import SimpleForm from '../components/SimpleForm';
 
 import Header from "../header";
 import Footer from "../footer";
+import ListUsers from "../components/ListUsers";
+import SearchList from "../components/SearchList";
 
 class ReactRouter extends Component {
   render() {
@@ -24,6 +26,8 @@ class ReactRouter extends Component {
                     <Route  path="/searchRecord" component={SearchRecord} />
                     <Route  path="/register" component={RegistrationForm} />
                     <Route  path="/SimpleForm" component={SimpleForm} />
+                    <Route  path="/ListUsers" component={ListUsers} />
+                    <Route  path="/searchR" component={SearchList} />
                   </div>
                   <Footer />
                 </div>

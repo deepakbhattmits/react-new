@@ -38,11 +38,13 @@ class Navigation extends  React.Component {
               <li className="nav-item">
                 <NavLink exact to="/SimpleForm" className ='nav-menu'>    SimpleForm      </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink exact to="/ListUsers" className ='nav-menu'>    Users      </NavLink>
+              </li>
+               <li className="nav-item">
+                <NavLink exact to="/searchR" className ='nav-menu'>    Search receipeis      </NavLink>
+              </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
             <GoogleAuth />
           </div>
         </nav>
