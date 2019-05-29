@@ -9,10 +9,11 @@ class SearchResult extends Component {
             return (
                     <div className="card" key={ recipe_id }> 
                             <div className="image">
-                                <img src={ image_url } alt={ title } />
+                                <img style={{wicth: 'auto', height: '250px'}} src={ image_url } alt={ title } />
                             </div>
                             <div className="content">
-                                <span className="header">{ title }</span>
+                                <span className="header">{ title.length < 20 ? title: title.substring(0,25)  }</span>
+                                {/* <span className="header">{ title }</span> */}
                                 <div className="description">
                                     { `Publisher is ${publisher}`}
                                 </div>

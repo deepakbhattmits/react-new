@@ -14,7 +14,7 @@ class Header extends Component {
         <div className="row">
 			<div className="text-center col-lg-12 col-sm-12 col-md-12 col-xs-12">
 				<header className="App-header">
-				<Navigation />
+				    <Navigation />
 				</header>
 			</div>
 		</div>

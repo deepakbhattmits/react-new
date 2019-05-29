@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from "../components/App";
 import Search from "../components/search";
@@ -15,7 +15,6 @@ import SearchList from "../components/SearchList";
 class ReactRouter extends Component {
   render() {
     return (
-      <Fragment>  
             <Router>
                 <div>
                   <Header />
@@ -32,8 +31,6 @@ class ReactRouter extends Component {
                   <Footer />
                 </div>
             </Router>
-          
-      </Fragment>
     );
   }
 }
