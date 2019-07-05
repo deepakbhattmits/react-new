@@ -19,14 +19,14 @@ class ReactRouter extends Component {
                 <div>
                   <Header />
                   <div className="container-fluid">
-                    <Route exact path="/" component={App} />
-                    <Route  path="/Search" component={Search} />
-                    <Route  path="/Submit" component={Submit} />
-                    <Route  path="/searchRecord" component={SearchRecord} />
-                    <Route  path="/register" component={RegistrationForm} />
-                    <Route  path="/SimpleForm" component={SimpleForm} />
-                    <Route  path="/ListUsers" component={ListUsers} />
-                    <Route  path="/searchR" component={SearchList} />
+                    <Route exact path="/" component={ App } />
+                    <Route  path="/Search" component={ Search } />
+                    <Route  path="/Submit" component={ Submit } />
+                    <Route  path="/searchRecord" component={ SearchRecord } />
+                    <Route  path="/register" component={ RegistrationForm } />
+                    <Route  path="/SimpleForm" component={ SimpleForm } />
+                    <Route  path="/ListUsers" component={ ListUsers } />
+                    <Route  path="/searchR" component={ SearchList } />
                   </div>
                   <Footer />
                 </div>

@@ -52,7 +52,7 @@ class Search extends Component {
 	// });
 	}
 	componentDidMount() {
-		fetch('http://starlord.hackerearth.com/movies',)
+		fetch('https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies',)
 		.then(response => response.json())
 		
 		.then((json) => {
@@ -208,7 +208,7 @@ class Search extends Component {
 		}		
   }
 	getData(){
-		fetch('http://starlord.hackerearth.com/movies',)
+		fetch('https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies',)
 		.then(response => response.json())
 		
 		.then((json) => {

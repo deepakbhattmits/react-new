@@ -15,7 +15,7 @@ const SearchBar = ( props ) => {
                                 placeholder='search here...'
                                 autoComplete='off'
                             />
-                            <i className="search icon"></i>
+                            <i className="search icon" areahidden='true'/>
                         </div>
                     </div>
             </form>

@@ -37,7 +37,7 @@ responsive = {
   1360: { items: 6 },
 };
 getData = () => {
-  fetch('http://starlord.hackerearth.com/movies',)
+  fetch('https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies',)
 		.then(response => response.json())
 		
 		.then((json) => {

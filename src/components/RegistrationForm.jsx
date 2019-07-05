@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class RegistrationForm extends Component {
-    state = {fields:{},errorMessages:{}};
+    state= {
+        fields: {},
+        errorMessages: {},
+    };
     handleChange = (e) => {
         let fields = this.state.fields
         // console.log('change in ',e.target.name)
