@@ -1,0 +1,205 @@
+/* @import './custom.less'; */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+/* .App-header {
+  background-color: #444;
+  height: 150px;
+  padding: 20px;
+  color: white;
+} */
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+@media (min-width:768px) {
+  .styles_modal__gNwvD {
+    width: 70%;
+  }
+}
+@media (max-width:767px) {
+  .styles_modal__gNwvD {
+    width: 100%;
+  }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+body {
+    background-color : #ededed ;
+}
+
+
+.hi {
+    width: 50px;
+    height: 72px;
+    background-image: url("../images/sprite-steps.png");
+
+    -webkit-animation: play .8s steps(10) infinite;
+       -moz-animation: play .8s steps(10) infinite;
+        -ms-animation: play .8s steps(10) infinite;
+         -o-animation: play .8s steps(10) infinite;
+            animation: play .8s steps(10) infinite;
+}
+.hi1 {
+ 
+  background-image: url("../images/sprite-steps.png");
+  height: 75px;
+  background-repeat: no-repeat;
+}
+
+@-webkit-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -500px; }
+}
+
+@-moz-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -500px; }
+}
+
+@-ms-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -500px; }
+}
+
+@-o-keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -500px; }
+}
+
+@keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -500px; }
+}
+.msg-div .msg {
+    margin: 10px auto;
+}
+.customSelect {
+    width: 80%; 
+    padding: 10px;
+    border-radius: 3px;
+}
+.nav-item {
+  color: #000;
+  border-radius: 3px;
+  text-align: left;
+  margin: 0 5px;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  background: #e1e1e1;
+}
+.nav-item a {
+  padding: 10px;
+  display: inline-block;
+}
+.nav-item.active {
+    background-color: #444;
+    color: #fff;
+}
+/* .nav-item:hover, .nav-item a:hover {
+    background-color: #444;
+    text-decoration: none;
+    transition: 0.5s;
+    color: #fff;
+} */
+/*   
+.long {
+  display: none;
+  width: 100%;
+}
+.long.scroll {
+  display: block;
+  z-index: 9;
+}
+.scroll {
+  width: 52px;
+  height: 52px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  border-color: transparent;
+  background-color: #7773A8;
+  font: 15px/1.35 Conv_Gotham Book Regular, Raleway,Lato,Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+.scroll:focus {
+  outline: 0;
+
+  }
+  .scroll .fa-angle-up:before {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.arrow-up {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -5px;
+}  */
+
+/* register form start */
+
+#register, #login {
+  width: 300px;
+  border: 1px solid #d6d7da;
+  padding: 0px 15px 15px 15px;
+  border-radius: 5px;
+  font-family: arial;
+  line-height: 16px;
+  color: #333333;
+  font-size: 14px;
+  background: #ffffff;
+  margin: 100px auto;
+}
+
+form label, form input {
+  display: block;
+  /* margin-bottom: 10px; */
+  width: 90%
+}
+
+form input {
+  padding: 10px;
+  border: solid 1px #BDC7D8;
+
+}
+
+.button {
+  background-color: #00BFFF;
+  border-color: #3ac162;
+  font-weight: bold;
+  padding: 12px 15px;
+  color: #ffffff;
+}
+
+.errorMsg {
+  color: #cc0000;
+  margin-bottom: 12px;
+}
+
+.sucessMsg {
+  color: #6B8E23;
+  margin-bottom: 10px;
+}
+/* register form end */
