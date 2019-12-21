@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollApp from './components/scroll';
+import ScrollApp from './components/ScrollApp';
 const Footer = () => {
 
 	return (
