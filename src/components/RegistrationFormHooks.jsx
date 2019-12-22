@@ -2,13 +2,8 @@
 
 import React, { useState } from 'react';
 
-const RegistrationFormHooks = () => {
-  // state = {
-  //     fields: {},
-  //     errorMessages: {},
-  // };
+const useFormInput = () => {
   const [fields, setFields] = useState({});
-  const [errorMessages, setErrorMessages] = useState({});
   const handleChange = e => {
     const { name, value } = e.target;
     // console.log('Fields : ', fields);
@@ -20,10 +15,30 @@ const RegistrationFormHooks = () => {
       setFields({ ...fields, [name]: value });
     }
   };
+  const handleResetForm = data => {
+    console.log('TEST RESET :', data);
+    setFields(data);
+  };
+  const actions = {
+    handleChange: handleChange,
+    handleResetForm: handleResetForm
+  };
+  return [fields, actions];
+};
+const RegistrationFormHooks = () => {
+  const [fields, actions] = useFormInput();
+  console.log(fields, actions);
+  // state = {
+  //     fields: {},
+  //     errorMessages: {},
+  // };
+  const [errorMessages, setErrorMessages] = useState({});
   const submitForm = e => {
     e.preventDefault();
     if (validateForm()) {
-      // console.log('Form Submited',fields);
+      console.log('Form Submited : ', fields);
+      // after send reset the form
+      actions.handleResetForm({});
     }
   };
   const validateForm = () => {
@@ -94,7 +109,7 @@ const RegistrationFormHooks = () => {
             type='text'
             id='username'
             name='username'
-            onChange={handleChange}
+            onChange={actions.handleChange}
             value={fields.username || ''}
           />
           <div className='errorMsg'>{errorMessages.username}</div>
@@ -103,7 +118,7 @@ const RegistrationFormHooks = () => {
             type='text'
             id='emailid'
             name='emailid'
-            onChange={handleChange}
+            onChange={actions.handleChange}
             value={fields.emailid || ''}
           />
           <div className='errorMsg'>{errorMessages.emailid}</div>
@@ -112,7 +127,7 @@ const RegistrationFormHooks = () => {
             type='text'
             id='mobileno'
             name='mobileno'
-            onChange={handleChange}
+            onChange={actions.handleChange}
             value={fields.mobileno || ''}
           />
           <div className='errorMsg'>{errorMessages.mobileno}</div>
@@ -121,7 +136,7 @@ const RegistrationFormHooks = () => {
             type='password'
             id='password'
             name='password'
-            onChange={handleChange}
+            onChange={actions.handleChange}
             value={fields.password || ''}
           />
           <div className='errorMsg'>{errorMessages.password}</div>
