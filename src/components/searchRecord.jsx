@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from "react";
+/** @format */
+
+import React, { Component, Fragment } from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import "react-alice-carousel/lib/alice-carousel.css";
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 import Image from 'react-image-resizer';
 
@@ -21,10 +23,10 @@ class SearchRecord extends Component {
     // this.handleChange = this.handleChange.bind(this);
     this.state = {
       data: [],
-      query: "",
+      query: '',
       filteredData: [],
       selectValue: '-- select any field --'
-    }
+    };
   }
   componentDidMount() {
     this.getData();
@@ -34,62 +36,65 @@ class SearchRecord extends Component {
     0: { items: 1 },
     600: { items: 2 },
     1024: { items: 4 },
-    1360: { items: 6 },
+    1360: { items: 6 }
   };
   getData = () => {
-    fetch('https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies')
+    fetch(
+      'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
+    )
       .then(response => response.json())
 
-      .then((json) => {
-        // console.log('test 0 : ',json);             
+      .then(json => {
+        // console.log('test old : ',json);
         this.setState({ data: json });
-        // console.log('test 1 : ',this.state.data);     
-
-      }).catch(function (error) {
+        // console.log('test new : ',this.state.data);
+      })
+      .catch(function(error) {
         // console.log("error:", error);
       });
-  }
-  onChangeInput = (e) => {
-    var result = "";
+  };
+  onChangeInput = e => {
+    var result = '';
     const query = e.target.value;
     // console.log("test serach :",e.target.value);
     var updatedList = this.state.data;
     if (query !== '') {
-
-      updatedList = updatedList.filter(function (item) {
-
+      updatedList = updatedList.filter(function(item) {
         // return item.movie_title.toLowerCase().search(
         //       query.toLowerCase()) !== -1;
         // console.log("TEST :",item);
-        if (item.movie_title.toLowerCase().search(
-          query.toLowerCase()) >= 0) {
-          result = item.movie_title.toLowerCase().search(
-            query.toLowerCase()) !== -1;
-        } else if (item.director_name.toLowerCase().search(
-          query.toLowerCase()) >= 0) {
-          result = item.director_name.toLowerCase().search(
-            query.toLowerCase()) !== -1;
-        } else if (item.country.toLowerCase().search(
-          query.toLowerCase()) >= 0) {
-          result = item.country.toLowerCase().search(
-            query.toLowerCase()) !== -1;
-        } else if (item.plot_keywords.toLowerCase().search(
-          query.toLowerCase()) >= 0) {
-          result = item.plot_keywords.toLowerCase().search(
-            query.toLowerCase()) !== -1;
-        } else if (item.title_year.toLowerCase().search(
-          query.toLowerCase()) >= 0) {
-          result = item.title_year.toLowerCase().search(
-            query.toLowerCase()) !== -1;
-        } else if (item.content_rating.toLowerCase().search(
-          query.toLowerCase()) >= 0) {
-          result = item.content_rating.toLowerCase().search(
-            query.toLowerCase()) !== -1;
+        if (item.movie_title.toLowerCase().search(query.toLowerCase()) >= 0) {
+          result =
+            item.movie_title.toLowerCase().search(query.toLowerCase()) !== -1;
+        } else if (
+          item.director_name.toLowerCase().search(query.toLowerCase()) >= 0
+        ) {
+          result =
+            item.director_name.toLowerCase().search(query.toLowerCase()) !== -1;
+        } else if (
+          item.country.toLowerCase().search(query.toLowerCase()) >= 0
+        ) {
+          result =
+            item.country.toLowerCase().search(query.toLowerCase()) !== -1;
+        } else if (
+          item.plot_keywords.toLowerCase().search(query.toLowerCase()) >= 0
+        ) {
+          result =
+            item.plot_keywords.toLowerCase().search(query.toLowerCase()) !== -1;
+        } else if (
+          item.title_year.toLowerCase().search(query.toLowerCase()) >= 0
+        ) {
+          result =
+            item.title_year.toLowerCase().search(query.toLowerCase()) !== -1;
+        } else if (
+          item.content_rating.toLowerCase().search(query.toLowerCase()) >= 0
+        ) {
+          result =
+            item.content_rating.toLowerCase().search(query.toLowerCase()) !==
+            -1;
         } else {
-
         }
         return result;
-
       });
 
       this.setState({ data: updatedList });
@@ -97,119 +102,148 @@ class SearchRecord extends Component {
       this.getData();
       this.setState({ data: this.state.data });
     }
-  }
+  };
 
   getInitialState = () => {
     return this.state.selectValue;
-  }
-  handleChange = (e) => {
+  };
+  handleChange = e => {
     this.setState({ selectValue: e.target.value });
-  }
+  };
 
   render() {
-    const handleOnDragStart = e => e.preDefault()
+    const handleOnDragStart = e => e.preDefault();
     const { data } = this.state;
 
     const style = {
       image: {
         border: '1px solid #ccc',
-        background: '#fefefe',
+        background: '#fefefe'
       },
       prodImg: {
         display: 'inline-block',
-        margin: '0 2px',
-      },
+        margin: '0 2px'
+      }
     };
     var message = 'You selected ' + this.state.selectValue;
     return (
       <Fragment>
-        <div className="row">
-          <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-            <AliceCarousel mouseDragEnabled >
+        <div className='row'>
+          <div className='col-lg-12 col-sm-12 col-md-12 col-xs-12'>
+            <AliceCarousel mouseDragEnabled>
               <Image
                 src={img1}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
               <Image
                 src={img2}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
               <Image
                 src={img3}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
               <Image
                 src={img4}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
               <Image
                 src={img5}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
               <Image
                 src={img6}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
               <Image
                 src={img7}
                 width={200}
-                height={200} responsive={this.responsive}
-                style={style.image} onDragStart={handleOnDragStart} className="yours-custom-class"
+                height={200}
+                responsive={this.responsive}
+                style={style.image}
+                onDragStart={handleOnDragStart}
+                className='yours-custom-class'
               />
             </AliceCarousel>
-
           </div>
         </div>
-        <div className="row">
-          <div className="col-lg-3 col-lg-offset-7 col-sm-3 col-sm-offset-7 col-md-3 col-md-offset-7 col-xs-10">
-            <div className="searchForm">
+        <div className='row'>
+          <div className='col-lg-3 col-lg-offset-7 col-sm-3 col-sm-offset-7 col-md-3 col-md-offset-7 col-xs-10'>
+            <div className='searchForm'>
               <form>
                 <input
-                  className="form-control" type="search" placeholder="Search for..."
+                  className='form-control'
+                  type='search'
+                  placeholder='Search for...'
                   onChange={this.onChangeInput}
                 />
               </form>
-              <div>{this.state.filteredData.map(i => <p>{i.name}</p>)}</div>
+              <div>
+                {this.state.filteredData.map(i => (
+                  <p>{i.name}</p>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="col-lg-2 col-sm-2 col-md-3 col-xs-2">
-
+          <div className='col-lg-2 col-sm-2 col-md-3 col-xs-2'>
             <div>
-              <i className="fa fa-filter fa-2x text-dark" aria-hidden="true"></i>
-              <select className="border-0 bg-white"
+              <i
+                className='fa fa-filter fa-2x text-dark'
+                aria-hidden='true'
+              ></i>
+              <select
+                className='border-0 bg-white'
                 value={this.state.selectValue}
                 onChange={this.handleChange}
               >
-                <option value="-- select any field --">-- select any field --</option>
-                <option value="director_name">director_name</option>
-                <option value="movie_title">movie_title</option>
-                <option value="country">country</option>
-                <option value="country">plot_keywords</option>
-                <option value="country">title_year</option>
-                <option value="country">content_rating</option>
+                <option value='-- select any field --'>
+                  -- select any field --
+                </option>
+                <option value='director_name'>director_name</option>
+                <option value='movie_title'>movie_title</option>
+                <option value='country'>country</option>
+                <option value='country'>plot_keywords</option>
+                <option value='country'>title_year</option>
+                <option value='country'>content_rating</option>
               </select>
               <p>{message}</p>
             </div>
           </div>
-
-
         </div>
-        <div className="row">
-          <div className="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-            <div className="table-responsive">
-              <table className="table table-striped">
+        <div className='row'>
+          <div className='col-lg-12 col-sm-12 col-md-12 col-xs-12'>
+            <div className='table-responsive'>
+              <table className='table table-striped'>
                 <thead>
                   <tr>
                     <th>Director Name</th>
@@ -218,7 +252,6 @@ class SearchRecord extends Component {
                     <th>Plot Keywords</th>
                     <th>Title Year</th>
                     <th>Content Rating</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -231,7 +264,6 @@ class SearchRecord extends Component {
                       <td>{item.plot_keywords}</td>
                       <td>{item.title_year}</td>
                       <td>{item.content_rating}</td>
-
                     </tr>
                   ))}
                   {/*  : 
@@ -244,11 +276,8 @@ class SearchRecord extends Component {
             </div>
           </div>
         </div>
-
-
       </Fragment>
-    )
-
+    );
   }
 }
 export default SearchRecord;
