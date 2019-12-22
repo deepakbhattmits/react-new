@@ -29,56 +29,47 @@ class Navigation extends React.Component {
           <ul className='navbar-nav mr-auto'>
             <li className='nav-item'>
               <NavLink exact to='/' className='nav-menu'>
-                {' '}
-                Home Page{' '}
+                Home Page
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink to='/search' className='nav-menu'>
-                {' '}
-                Search data{' '}
+                Search data
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink to='/submit' className='nav-menu'>
-                {' '}
-                Save Record{' '}
+                Save Record
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink to='/searchRecord' className='nav-menu'>
-                {' '}
-                Search Record By name{' '}
+                Search Record By name
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink exact to='/register' className='nav-menu'>
-                {' '}
-                Register{' '}
+                Register
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink exact to='/registerHook' className='nav-menu'>
-                {' '}
-                Register Hooks{' '}
+                Register Hooks
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink exact to='/SimpleForm' className='nav-menu'>
-                {' '}
-                SimpleForm{' '}
+                SimpleForm
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink exact to='/ListUsers' className='nav-menu'>
-                {' '}
-                Users{' '}
+                Users
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink exact to='/searchR' className='nav-menu'>
-                {' '}
-                Search receipeis{' '}
+                Search receipeis
               </NavLink>
             </li>
           </ul>
