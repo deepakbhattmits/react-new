@@ -17,12 +17,10 @@ const RegistrationFormHooks = () => {
   //   };
   const handleChange = e => {
     const { name, value } = e.target;
-    console.log('Fields : ', fields);
+    // console.log('Fields : ', fields);
     if (name === 'mobileno') {
       if (/^\d+$/.test(value)) {
-        if (value.match(/^[0-9]{10}$/)) {
-          setFields({ ...fields, [name]: value });
-        }
+        setFields({ ...fields, [name]: value });
       }
     } else {
       setFields({ ...fields, [name]: value });
