@@ -35,7 +35,7 @@ class SearchResult extends Component {
     );
   }
   render() {
-    // console.log('search result : ',this.props.data.recipes);
+    // console.log('TEST search result : ',this.props.data.recipes);
     return (
       <div className='ui cards' style={{ marginTop: '10px' }}>
         {this.renderResult()}
