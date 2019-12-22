@@ -13,7 +13,7 @@ import SimpleForm from '../components/SimpleForm';
 import Header from '../header';
 import Footer from '../footer';
 import ListUsers from '../components/ListUsers';
-import SearchList from '../components/SearchList';
+import SearchRecipe from '../components/SearchRecipe';
 
 const ReactRouter = () => {
   return (
@@ -28,7 +28,7 @@ const ReactRouter = () => {
           <Route path='/register' component={RegistrationForm} />
           <Route path='/SimpleForm' component={SimpleForm} />
           <Route path='/ListUsers' component={ListUsers} />
-          <Route path='/searchR' component={SearchList} />
+          <Route path='/searchR' component={SearchRecipe} />
           <Route path='/registerHook' component={RegistrationFormHooks} />
         </div>
         <Footer />
