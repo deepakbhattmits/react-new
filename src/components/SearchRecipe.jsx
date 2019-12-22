@@ -17,7 +17,7 @@ class SearchRecipe extends Component {
   getRecipe = e => {
     const term = e.target.elements.recipeName.value;
     e.preventDefault();
-    console.log('from list term ', term);
+    // console.log('from list term ', term);
     fetch(
       `https://www.food2fork.com/api/search?key=${API_KEY}&q=${term}&count=5`,
       {
