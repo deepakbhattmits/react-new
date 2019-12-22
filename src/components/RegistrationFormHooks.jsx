@@ -9,12 +9,6 @@ const RegistrationFormHooks = () => {
   // };
   const [fields, setFields] = useState({});
   const [errorMessages, setErrorMessages] = useState({});
-  //   const onKeyPress = event => {
-  //     console.log('TEST');
-  //     const keyCode = event.keyCode || event.which;
-  //     const keyValue = String.fromCharCode(keyCode);
-  //     if (/\+|-/.test(keyValue)) event.preventDefault();
-  //   };
   const handleChange = e => {
     const { name, value } = e.target;
     // console.log('Fields : ', fields);
