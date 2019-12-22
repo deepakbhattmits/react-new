@@ -28,7 +28,7 @@
   },
   "scripts": {
     "watch-less": "react-less-watcher -d src/css",
-    "start": "react-scripts start&npm run watch-less",
+    "start": "react-scripts start & npm run watch-less",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
