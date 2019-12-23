@@ -131,6 +131,7 @@ class App extends Component {
   };
 
   render() {
+    // console.log('TEST :',props)
     const columns = [
       {
         Header: 'Director Name',
