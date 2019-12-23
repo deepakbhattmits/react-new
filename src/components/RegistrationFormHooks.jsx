@@ -27,7 +27,7 @@ const useFormInput = () => {
 };
 const RegistrationFormHooks = () => {
   const [fields, actions] = useFormInput();
-  console.log(fields, actions);
+  // console.log(fields, actions);
   // state = {
   //     fields: {},
   //     errorMessages: {},
