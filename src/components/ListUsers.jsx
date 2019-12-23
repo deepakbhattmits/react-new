@@ -26,7 +26,7 @@ class ListUser extends Component {
     );
   }
   render() {
-    // console.log('TEST props: ',this.props.isSignedIn);
+    // console.log('TEST: ',this.props.isSignedIn);
     return <div className='ui cards'>{this.renderCard()}</div>;
   }
 }
