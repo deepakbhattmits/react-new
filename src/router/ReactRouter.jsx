@@ -16,6 +16,7 @@ import ListUsers from '../components/ListUsers';
 import SearchRecipe from '../components/SearchRecipe';
 
 const ReactRouter = () => {
+  // console.log('TEST')
   return (
     <Router>
       <div>
