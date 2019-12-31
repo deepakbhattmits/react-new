@@ -122,7 +122,7 @@ class App extends Component {
       .then(response => response.json())
 
       .then(json => {
-        console.log('pre test : ', json, 'TEST : ', json.data);
+        // console.log('pre test : ', json, 'TEST : ', json.data);
         this.setState({ data: json });
       })
       .catch(function(error) {
