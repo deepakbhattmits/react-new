@@ -60,7 +60,7 @@ class Search extends Component {
       .then(response => response.json())
 
       .then(json => {
-        // console.log('TEST : ',json);
+        // console.log('TEST: ',json);
         this.setState({ options: json });
         // console.log(this.state.selectedData);
       })
