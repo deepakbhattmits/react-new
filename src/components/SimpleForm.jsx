@@ -17,7 +17,7 @@ class SimpleForm extends Component {
   }
 
   input = ({ input, label, placeholder, meta }) => {
-    // console.log('TEST :', meta );
+    // console.log(' TEST :', meta );
     const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
     return (
       <div className={className}>
