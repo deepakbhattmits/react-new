@@ -56,7 +56,7 @@ class Submit extends Component {
     else this.setState({ [e.target.name]: e.target.checked });
   };
   render() {
-    // console.log(' TEST :', props);
+    // console.log(' TEST : ', props);
     return (
       <React.Fragment>
         <div className='container-fluid'>
