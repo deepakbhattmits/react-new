@@ -5,6 +5,7 @@ export const createUser = (formValues) => async (dispatch) => {
 };
 export const listUser = () => async (dispatch) => {
     const response = await users.get('/users');
+    console.log('test : ',response.data)
     dispatch({ type: LIST_USERS, payload: response.data });
 };
 export const signIn = (userId) => {
