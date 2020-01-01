@@ -54,7 +54,7 @@ class GoogleAuth extends Component {
     }
   }
   render() {
-    // console.log("TEST isSignedIn :",this.props.isSignedIn);
+    // console.log("isSignedIn :",this.props.isSignedIn);
     return <div>{this.renderAuthButton()}</div>;
   }
 }
