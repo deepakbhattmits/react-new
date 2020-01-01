@@ -26,6 +26,7 @@ class App extends Component {
   };
 
   renderLoadButton = () => {
+    // console.log('TEST :', this.props);
     const { isSignedIn } = this.props.auth;
 
     if (isSignedIn) {
