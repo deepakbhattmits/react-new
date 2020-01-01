@@ -1,49 +1,49 @@
 {
-  "name": "react-routerm",
-  "version": "0.1.0",
-  "private": true,
-  "author": {
-    "name": "deepak",
-    "email": "deepakbhattmits@gmail.com"
-  },
-  "dependencies": {
-    "axios": "^0.18.0",
-    "bootstrap": "^4.1.3",
-    "jquery": "^3.3.1",
-    "lodash": "^4.17.11",
-    "react": "^16.8.5",
-    "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.8.5",
-    "react-fontawesome": "^1.6.1",
-    "react-less-watcher": "^1.1.4",
-    "react-redux": "^7.0.1",
-    "react-responsive-modal": "^3.4.0",
-    "react-router-dom": "^4.4.0-beta.6",
-    "react-scripts": "1.1.1",
-    "react-table": "^6.8.6",
-    "redux": "^4.0.1",
-    "redux-form": "^8.2.0",
-    "redux-thunk": "^2.3.0",
-    "update": "^0.7.4"
-  },
-  "scripts": {
-    "watch-less": "react-less-watcher -d src/css",
-    "start": "react-scripts start & npm run watch-less",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "css-loader": "^2.1.0",
-    "font-awesome": "^4.7.0",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
-    "mini-css-extract-plugin": "^0.5.0",
-    "react-alice-carousel": "^1.13.1",
-    "react-image-resizer": "^1.3.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^3.11.0",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
-  }
+	"name": "react-new",
+	"version": "0.1.0",
+	"private": true,
+	"author": {
+		"name": "deepak",
+		"email": "deepakbhattmits@gmail.com"
+	},
+	"dependencies": {
+		"axios": "^0.18.0",
+		"bootstrap": "^4.1.3",
+		"jquery": "^3.3.1",
+		"lodash": "^4.17.11",
+		"react": "^16.8.5",
+		"react-bootstrap": "^0.32.4",
+		"react-dom": "^16.8.5",
+		"react-fontawesome": "^1.6.1",
+		"react-less-watcher": "^1.1.4",
+		"react-redux": "^7.0.1",
+		"react-responsive-modal": "^3.4.0",
+		"react-router-dom": "^4.4.0-beta.6",
+		"react-scripts": "1.1.1",
+		"react-table": "^6.8.6",
+		"redux": "^4.0.1",
+		"redux-form": "^8.2.0",
+		"redux-thunk": "^2.3.0",
+		"update": "^0.7.4"
+	},
+	"scripts": {
+		"watch-less": "react-less-watcher -d src/css",
+		"start": "react-scripts start & npm run watch-less",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"css-loader": "^2.1.0",
+		"font-awesome": "^4.7.0",
+		"less": "^3.9.0",
+		"less-loader": "^4.1.0",
+		"mini-css-extract-plugin": "^0.5.0",
+		"react-alice-carousel": "^1.13.1",
+		"react-image-resizer": "^1.3.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^3.11.0",
+		"webpack-cli": "^3.2.3",
+		"webpack-dev-server": "^3.2.1"
+	}
 }
