@@ -33,7 +33,7 @@ class SearchRecipe extends Component {
 				console.log(this.state.data);
 			})
 			.catch(function(error) {
-				// console.log("error :", error);
+				// console.log(" error :", error);
 			});
 	};
 	getOption = e => {
