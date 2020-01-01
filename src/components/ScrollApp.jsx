@@ -8,7 +8,7 @@ class ScrollButton extends Component {
   };
 
   scrollStep = () => {
-    // console.log("Scroll :")
+    // console.log("test Scroll :")
     if (window.pageYOffset === 0) {
       clearInterval(this.state.intervalId);
     }
