@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from './components/navigation'
 const Header = () => {
-  // console.log('test')
+  // console.log('test :')
   return (
     <div className="container-fluid">
       <div className="row">
