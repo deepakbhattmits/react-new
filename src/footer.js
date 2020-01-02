@@ -1,7 +1,7 @@
 import React from "react";
 import ScrollApp from './components/ScrollApp';
-const Footer = () => {
-	// console.log('TEST :')
+const Footer = () => { 
+	// console.log('TEST : ')
 
 	return (
 		<div className="container-fluid">
