@@ -3,7 +3,7 @@
 import React from 'react';
 
 const SearchBar = ({ getRecipe }) => {
-  // console.log(' TEST :', getRecipe)
+  // console.log(' TEST:', getRecipe)
   return (
     <div>
       <form
