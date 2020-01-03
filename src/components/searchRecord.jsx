@@ -45,7 +45,7 @@ class SearchRecord extends Component {
       .then(response => response.json())
 
       .then(json => {
-        // console.log('test old  : ',json);
+        // console.log('test old : ',json);
         this.setState({ data: json });
         // console.log('test new  : ',this.state.data);
       })
