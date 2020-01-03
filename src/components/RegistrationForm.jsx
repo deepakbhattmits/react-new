@@ -10,7 +10,7 @@ class RegistrationForm extends Component {
 	};
 	handleChange = e => {
 		let fields = this.state.fields;
-		// console.log('TEST handlechange:> ',e.target.name)
+		// console.log('TEST handlechange: ',e.target.name)
 		fields[e.target.name] = e.target.value;
 		this.setState({
 			fields
