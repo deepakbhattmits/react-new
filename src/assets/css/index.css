@@ -1,114 +1,141 @@
-/* @import './custom.less'; */
+/**
+ * /* @import './custom.less';
+ *
+ * @format
+ */
+
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 18s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 18s linear;
+	height: 80px;
 }
 
 /* .App-header {
-  background-color: #444;
+  background-color: #ccc;
   height: 150px;
   padding: 20px;
   color: white;
 } */
 
 .App-title {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
 }
-@media (min-width:768px) {
-  .styles_modal__gNwvD {
-    width: 70%;
-  }
+@media (min-width: 768px) {
+	.styles_modal__gNwvD {
+		width: 70%;
+	}
 }
-@media (max-width:767px) {
-  .styles_modal__gNwvD {
-    width: 100%;
-  }
+@media (max-width: 767px) {
+	.styles_modal__gNwvD {
+		width: 100%;
+	}
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 body {
-    background-color : #ededed ;
+	background-color: #ededed;
 }
-
 
 .hi {
-    width: 50px;
-    height: 72px;
-    background-image: url("../images/sprite-steps.png");
+	width: 50px;
+	height: 72px;
+	background-image: url('../images/sprite-steps.png');
 
-    -webkit-animation: play .8s steps(10) infinite;
-       -moz-animation: play .8s steps(10) infinite;
-        -ms-animation: play .8s steps(10) infinite;
-         -o-animation: play .8s steps(10) infinite;
-            animation: play .8s steps(10) infinite;
+	-webkit-animation: play 0.8s steps(10) infinite;
+	-moz-animation: play 0.8s steps(10) infinite;
+	-ms-animation: play 0.8s steps(10) infinite;
+	-o-animation: play 0.8s steps(10) infinite;
+	animation: play 0.8s steps(10) infinite;
 }
 .hi1 {
- 
-  background-image: url("../images/sprite-steps.png");
-  height: 75px;
-  background-repeat: no-repeat;
+	background-image: url('../images/sprite-steps.png');
+	height: 75px;
+	background-repeat: no-repeat;
 }
 
 @-webkit-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -500px; }
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -500px;
+	}
 }
 
 @-moz-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -500px; }
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -500px;
+	}
 }
 
 @-ms-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -500px; }
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -500px;
+	}
 }
 
 @-o-keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -500px; }
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -500px;
+	}
 }
 
 @keyframes play {
-   from { background-position:    0px; }
-     to { background-position: -500px; }
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -500px;
+	}
 }
 .msg-div .msg {
-    margin: 10px auto;
+	margin: 10px auto;
 }
 .customSelect {
-    width: 80%; 
-    padding: 10px;
-    border-radius: 3px;
+	width: 80%;
+	padding: 10px;
+	border-radius: 3px;
 }
 .nav-item {
-  color: #000;
-  border-radius: 3px;
-  text-align: left;
-  margin: 0 5px;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  position: relative;
-  background: #e1e1e1;
+	color: #000;
+	border-radius: 3px;
+	text-align: left;
+	margin: 0 5px;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	position: relative;
+	background: #e1e1e1;
 }
 .nav-item a {
-  padding: 10px;
-  display: inline-block;
+	padding: 10px;
+	display: inline-block;
 }
 .nav-item.active {
-    background-color: #444;
-    color: #fff;
+	background-color: #444;
+	color: #fff;
 }
 /* .nav-item:hover, .nav-item a:hover {
     background-color: #444;
@@ -160,46 +187,47 @@ body {
 
 /* register form start */
 
-#register, #login {
-  width: 300px;
-  border: 1px solid #d6d7da;
-  padding: 0px 15px 15px 15px;
-  border-radius: 5px;
-  font-family: arial;
-  line-height: 16px;
-  color: #333333;
-  font-size: 14px;
-  background: #ffffff;
-  margin: 100px auto;
+#register,
+#login {
+	width: 300px;
+	border: 1px solid #d6d7da;
+	padding: 0px 15px 15px 15px;
+	border-radius: 5px;
+	font-family: arial;
+	line-height: 16px;
+	color: #333333;
+	font-size: 14px;
+	background: #ffffff;
+	margin: 100px auto;
 }
 
-form label, form input {
-  display: block;
-  /* margin-bottom: 10px; */
-  width: 90%
+form label,
+form input {
+	display: block;
+	/* margin-bottom: 10px; */
+	width: 90%;
 }
 
 form input {
-  padding: 10px;
-  border: solid 1px #BDC7D8;
-
+	padding: 10px;
+	border: solid 1px #bdc7d8;
 }
 
 .button {
-  background-color: #00BFFF;
-  border-color: #3ac162;
-  font-weight: bold;
-  padding: 12px 15px;
-  color: #ffffff;
+	background-color: #00bfff;
+	border-color: #3ac162;
+	font-weight: bold;
+	padding: 12px 15px;
+	color: #ffffff;
 }
 
 .errorMsg {
-  color: #cc0000;
-  margin-bottom: 12px;
+	color: #cc0000;
+	margin-bottom: 12px;
 }
 
 .sucessMsg {
-  color: #6B8E23;
-  margin-bottom: 10px;
+	color: #6b8e23;
+	margin-bottom: 10px;
 }
 /* register form end */
