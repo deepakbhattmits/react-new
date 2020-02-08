@@ -1,0 +1,67 @@
+/**
+ * /*
+ * * react-table styles start
+ *
+ * @format
+ */
+
+.ReactTable {
+	&.react-table {
+		border: none;
+		.active {
+			path {
+				fill: red;
+			}
+		}
+		.icon {
+			border: 1px solid #000;
+			border-left: none;
+			height: 30px;
+			width: 30px;
+			background: #ccc;
+			&.--arrow {
+				height: 15px;
+				width: 15px;
+				border: none;
+				background: transparent;
+			}
+
+			&--up--svg {
+				border: none;
+				background: transparent;
+
+				// @include Animation;
+			}
+			&--down--svg {
+				border: none;
+				background: transparent;
+				// @include Animation;
+			}
+		}
+		.rt-thead {
+		.rt-tbody {
+			> .rt-tr-group {
+				> .-odd,
+				> .-even {
+					// 	background-color: #000;
+					// 	color: #fff;
+					padding: 10px 5px;
+
+					.rt-td {
+						border-right: none;
+						padding: 10px 5px;
+					}
+				}
+
+				.rt-tr-group {
+					.rt-td.group {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+/*
+** react-table styles start
+*/
