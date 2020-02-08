@@ -9,459 +9,458 @@ import $ from 'jquery';
 // import 'react-table/react-table.css';
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-    // this.editRow = this.editRow.bind(this);
-    // this.deleteRow = this.deleteRow.bind(this);
-    // this.inputHandleChangeFirstName = this.inputHandleChangeFirstName.bind(this);
-    // this.inputHandleChangeLastName = this.inputHandleChangeLastName.bind(this);
-    // this.inputHandleChangeHomeTown = this.inputHandleChangeHomeTown.bind(this);
-    // this.inputHandleChangeJob = this.inputHandleChangeJob.bind(this);
-    // this.inputHandleChangeAge = this.inputHandleChangeAge.bind(this);
-    // this.inputHandleChangeUserName = this.inputHandleChangeUserName.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {
-      FirstName: '',
-      LastName: '',
-      HomeTown: '',
-      Job: '',
-      Age: '',
-      UserName: '',
-      data: [],
-      msg: '',
-      selectedData: '',
-      // selectedData1 : [],
-      check: false,
-      options: [],
-      value: '',
-      open: false,
-      statusType: 'active'
-    };
+	constructor(props) {
+		super(props);
+		// this.editRow = this.editRow.bind(this);
+		// this.deleteRow = this.deleteRow.bind(this);
+		// this.inputHandleChangeFirstName = this.inputHandleChangeFirstName.bind(this);
+		// this.inputHandleChangeLastName = this.inputHandleChangeLastName.bind(this);
+		// this.inputHandleChangeHomeTown = this.inputHandleChangeHomeTown.bind(this);
+		// this.inputHandleChangeJob = this.inputHandleChangeJob.bind(this);
+		// this.inputHandleChangeAge = this.inputHandleChangeAge.bind(this);
+		// this.inputHandleChangeUserName = this.inputHandleChangeUserName.bind(this);
+		// this.handleSubmit = this.handleSubmit.bind(this);
+		this.state = {
+			FirstName: '',
+			LastName: '',
+			HomeTown: '',
+			Job: '',
+			Age: '',
+			UserName: '',
+			data: [],
+			msg: '',
+			selectedData: '',
+			// selectedData1 : [],
+			check: false,
+			options: [],
+			value: '',
+			open: false,
+			statusType: 'active'
+		};
 
-    // $.ajax({
-    // 	url: "http://localhost/react-new-local/api/data.php",
-    // 	type : "POST",
-    // 	dataType:'json',
-    // 	data: this.state.statusType,
-    // 	success : function(response) {
+		// $.ajax({
+		// 	url: "http://localhost/react-new-local/api/data.php",
+		// 	type : "POST",
+		// 	dataType:'json',
+		// 	data: this.state.statusType,
+		// 	success : function(response) {
 
-    // 	this.setState({ options : response })
-    // 	// this.setState({ check: false});
-    // 	}.bind(this),
-    // 	error: function(xhr, resp, text){
-    // 		// console.log(xhr, resp, text);
-    // 	}
-    // });
-  }
-  componentDidMount() {
-    fetch(
-      'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
-    )
-      .then(response => response.json())
+		// 	this.setState({ options : response })
+		// 	// this.setState({ check: false});
+		// 	}.bind(this),
+		// 	error: function(xhr, resp, text){
+		// 		// console.log(xhr, resp, text);
+		// 	}
+		// });
+	}
+	componentDidMount() {
+		fetch(
+			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
+		)
+			.then(response => response.json())
 
-      .then(json => {
-        // console.log('TEST: ',json);
-        this.setState({ options: json });
-        // console.log(this.state.selectedData);
-      })
-      .catch(function(error) {
-        // console.log("error res:", error);
-      });
-  }
+			.then(json => {
+				console.log('TEST: ', json);
+				this.setState({ options: json });
+				// console.log(this.state.selectedData);
+			})
+			.catch(function(error) {
+				// console.log("error res:", error);
+			});
+	}
 
-  // inputHandleChange(e) {
-  //     // this.setState({value: e.target.value});
-  //     console.log('A name was edited: ', e.target.value);
-  // }
-  inputHandleChangeFirstName = e => {
-    // console.log("FirstName : ",e.target.value);
-    this.setState({
-      FirstName: e.target.value
-    });
-  };
-  inputHandleChangeLastName = e => {
-    this.setState({
-      LastName: e.target.value
-    });
-  };
-  inputHandleChangeHomeTown = e => {
-    this.setState({
-      HomeTown: e.target.value
-    });
-  };
-  inputHandleChangeJob = e => {
-    this.setState({
-      Job: e.target.value
-    });
-  };
-  inputHandleChangeAge = e => {
-    this.setState({
-      Age: e.target.value
-    });
-  };
-  inputHandleChangeUserName = e => {
-    this.setState({
-      UserName: e.target.value
-    });
-  };
-  handleSubmit = e => {
-    e.preDefault();
-    let edited_data = {
-      FirstName: e.target.FirstName.value,
-      LastName: e.target.LastName.value,
-      HomeTown: e.target.HomeTown.value,
-      Job: e.target.Job.value,
-      Age: e.target.Age.value,
-      UserName: e.target.UserName.value,
-      statusType: 'active',
-      qryType: 'EDIT'
-    };
-    // console.log("EDITED DATA : ",edited_data);
+	// inputHandleChange(e) {
+	//     // this.setState({value: e.target.value});
+	//     console.log('A name was edited: ', e.target.value);
+	// }
+	inputHandleChangeFirstName = e => {
+		// console.log("FirstName : ",e.target.value);
+		this.setState({
+			FirstName: e.target.value
+		});
+	};
+	inputHandleChangeLastName = e => {
+		this.setState({
+			LastName: e.target.value
+		});
+	};
+	inputHandleChangeHomeTown = e => {
+		this.setState({
+			HomeTown: e.target.value
+		});
+	};
+	inputHandleChangeJob = e => {
+		this.setState({
+			Job: e.target.value
+		});
+	};
+	inputHandleChangeAge = e => {
+		this.setState({
+			Age: e.target.value
+		});
+	};
+	inputHandleChangeUserName = e => {
+		this.setState({
+			UserName: e.target.value
+		});
+	};
+	handleSubmit = e => {
+		e.preDefault();
+		let edited_data = {
+			FirstName: e.target.FirstName.value,
+			LastName: e.target.LastName.value,
+			HomeTown: e.target.HomeTown.value,
+			Job: e.target.Job.value,
+			Age: e.target.Age.value,
+			UserName: e.target.UserName.value,
+			statusType: 'active',
+			qryType: 'EDIT'
+		};
+		// console.log("EDITED DATA : ",edited_data);
 
-    $.ajax({
-      url: 'http://localhost/react-new-local/api/recordEdit.php',
-      type: 'POST',
-      dataType: 'json',
-      data: edited_data,
-      success: function(response) {
-        this.getData();
-        this.setState({
-          msg: response['success']
-        });
-      }.bind(this),
-      error: function(xhr, resp, text) {
-        // this.setState({
-        //   msg : resp["error"]
-        // })
-        // console.log(xhr, resp, text);
-      }
-    });
-  };
-  onOpenModal = () => {
-    this.setState({ open: true });
-  };
-  onCloseModal = () => {
-    this.setState({ open: false });
-    this.getData();
-    this.setState({
-      msg: ''
-    });
-  };
-  editRow = e => {
-    // console.log("TEST-edit",e["FirstName"]);
-    this.onOpenModal();
-    this.setState({
-      FirstName: e['FirstName'],
-      LastName: e['LastName'],
-      HomeTown: e['HomeTown'],
-      Job: e['Job'],
-      Age: e['Age'],
-      UserName: e['UserName']
-    });
-  };
-  deleteRow = e => {
-    // console.log("WANT DELETE : ",e["UserName"]);
-    let delete_data = {
-      UserName: e['UserName'],
-      statusType: 'deactive',
-      qryType: 'DELETE'
-    };
-    $.ajax({
-      url: 'http://localhost/react-new-local/api/recordDelete.php',
-      type: 'POST',
-      dataType: 'json',
-      data: delete_data,
-      success: function(response) {
-        this.setState({
-          msg: response['success']
-        });
-        this.setState({ value: '' });
-        // this.setState({ selectedData : response["success"] });
+		$.ajax({
+			url: 'http://localhost/react-new-local/api/recordEdit.php',
+			type: 'POST',
+			dataType: 'json',
+			data: edited_data,
+			success: function(response) {
+				this.getData();
+				this.setState({
+					msg: response['success']
+				});
+			}.bind(this),
+			error: function(xhr, resp, text) {
+				// this.setState({
+				//   msg : resp["error"]
+				// })
+				// console.log(xhr, resp, text);
+			}
+		});
+	};
+	onOpenModal = () => {
+		this.setState({ open: true });
+	};
+	onCloseModal = () => {
+		this.setState({ open: false });
+		this.getData();
+		this.setState({
+			msg: ''
+		});
+	};
+	editRow = e => {
+		// console.log("TEST-edit",e["FirstName"]);
+		this.onOpenModal();
+		this.setState({
+			FirstName: e['FirstName'],
+			LastName: e['LastName'],
+			HomeTown: e['HomeTown'],
+			Job: e['Job'],
+			Age: e['Age'],
+			UserName: e['UserName']
+		});
+	};
+	deleteRow = e => {
+		// console.log("WANT DELETE : ",e["UserName"]);
+		let delete_data = {
+			UserName: e['UserName'],
+			statusType: 'deactive',
+			qryType: 'DELETE'
+		};
+		$.ajax({
+			url: 'http://localhost/react-new-local/api/recordDelete.php',
+			type: 'POST',
+			dataType: 'json',
+			data: delete_data,
+			success: function(response) {
+				this.setState({
+					msg: response['success']
+				});
+				this.setState({ value: '' });
+				// this.setState({ selectedData : response["success"] });
 
-        // this.handleChange();
-        this.getData();
-      }.bind(this),
-      error: function(xhr, resp, text) {
-        // console.log(xhr, resp, text);
-      }
-    });
-  };
-  handleChange = e => {
-    this.setState({ value: e.target.value });
-    // console.log("test selected student data : ", e.target.value);
-    var search_data = {
-      movie_title: e.target.value
-    };
-    // console.log('get the value :',this.state.options);
-    for (var i = 0; i < this.state.options.length; i++) {
-      if (search_data['movie_title'] === this.state.options[i]['movie_title']) {
-        //	console.log("search row : ",this.state.options[i]);
-        this.setState({ selectedData: this.state.options[i] });
-        // var resp = JSON.parse(this.state.options[i]);
-        // console.log("TEST : ",resp);
-        // this.setState({ selectedData1 : this.state.options[i] })
-      }
-    }
-  };
-  getData() {
-    fetch(
-      'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
-    )
-      .then(response => response.json())
+				// this.handleChange();
+				this.getData();
+			}.bind(this),
+			error: function(xhr, resp, text) {
+				// console.log(xhr, resp, text);
+			}
+		});
+	};
+	handleChange = e => {
+		this.setState({ value: e.target.value });
+		// console.log("test selected student data : ", e.target.value);
+		var search_data = {
+			movie_title: e.target.value
+		};
+		// console.log('get the value :',this.state.options);
+		for (var i = 0; i < this.state.options.length; i++) {
+			if (search_data['movie_title'] === this.state.options[i]['movie_title']) {
+				//	console.log("search row : ",this.state.options[i]);
+				this.setState({ selectedData: this.state.options[i] });
+				// var resp = JSON.parse(this.state.options[i]);
+				// console.log("TEST : ",resp);
+				// this.setState({ selectedData1 : this.state.options[i] })
+			}
+		}
+	};
+	getData() {
+		fetch(
+			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
+		)
+			.then(response => response.json())
 
-      .then(json => {
-        // console.log('pre test : ',json, "TEST : ",json.data);
+			.then(json => {
+				// console.log('pre test : ',json, "TEST : ",json.data);
 
-        this.setState({ options: json });
-      })
-      .catch(function(error) {
-        // console.log("error:", error);
-      });
-  }
-  render() {
-    // console.log("asdsa ",this.state.selectedData);
-    const { options, value } = this.state;
-    // const columns = [
-    // 	{
-    // 		Header: 'ID',
-    // 		accessor:  'id' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'First Name',
-    // 		accessor:  'FirstName' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Last Name',
-    // 		accessor: 'LastName' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Hometown',
-    // 		accessor: 'HomeTown' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Designation',
-    // 		accessor: 'Job' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Age',
-    // 		accessor: 'Age' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'UserName',
-    // 		accessor: 'UserName' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Action',
-    // 		Cell: props => <div>&nbsp;<button  onClick={ (e) => { this.editRow(props.original); }}>Edit</button>&nbsp;&nbsp;<button  onClick={ (e) => {   this.deleteRow(props.original);  }} >Delete</button>&nbsp;</div>
-    //   }
-    // ]
+				this.setState({ options: json });
+			})
+			.catch(function(error) {
+				// console.log("error:", error);
+			});
+	}
+	render() {
+		// console.log("asdsa ",this.state.selectedData);
+		const { options, value } = this.state;
+		// const columns = [
+		// 	{
+		// 		Header: 'ID',
+		// 		accessor:  'id' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'First Name',
+		// 		accessor:  'FirstName' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Last Name',
+		// 		accessor: 'LastName' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Hometown',
+		// 		accessor: 'HomeTown' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Designation',
+		// 		accessor: 'Job' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Age',
+		// 		accessor: 'Age' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'UserName',
+		// 		accessor: 'UserName' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Action',
+		// 		Cell: props => <div>&nbsp;<button  onClick={ (e) => { this.editRow(props.original); }}>Edit</button>&nbsp;&nbsp;<button  onClick={ (e) => {   this.deleteRow(props.original);  }} >Delete</button>&nbsp;</div>
+		//   }
+		// ]
 
-    // const columns = [
-    // 	{
-    // 		Header: 'Director Name',
-    // 		accessor:  'director_name' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Movie Title',
-    // 		accessor:  'movie_title' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Country',
-    // 		accessor: 'country' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Plot Keywords',
-    // 		accessor: 'plot_keywords' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Title Year',
-    // 		accessor: 'title_year' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Content Rating',
-    // 		accessor: 'content_rating' // String-based value accessors!
-    // 	},
-    // 	{
-    // 		Header: 'Action',
-    // 		Cell: props => <div>&nbsp;<button  onClick={ (e) => {    this.handleChange(props.original);  }}>Edit</button>&nbsp;&nbsp;<button  onClick={ (e) => {   this.deleteRow(props.original);  }} >Delete</button>&nbsp;</div>
-    // 	}
-    // ]
-    return (
-      <React.Fragment>
-        <div className='container-fluid'>
-          <div className='row'>
-            <div className='col-lg-2 col-sm-2 col-md-2 col-xs-12'>
-              <select
-                className='customSelect'
-                onChange={this.handleChange}
-                value={value}
-              >
-                {options.map((item, index) => (
-                  <option key={index} value={item.movie_title}>
-                    {item.movie_title}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className='col-lg-10 col-sm-10 col-md-10 col-xs-12'>
-              <span className='h3'>Select Student is : {value}</span>
-              <span className='h2'>{this.state.msg}</span>
-              {/* <ReactTable data={ this.state.selectedData1 } style={{ textTransform: 'uppercase' }} columns={ columns }   defaultPageSize={ 5 } /> */}
+		// const columns = [
+		// 	{
+		// 		Header: 'Director Name',
+		// 		accessor:  'director_name' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Movie Title',
+		// 		accessor:  'movie_title' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Country',
+		// 		accessor: 'country' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Plot Keywords',
+		// 		accessor: 'plot_keywords' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Title Year',
+		// 		accessor: 'title_year' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Content Rating',
+		// 		accessor: 'content_rating' // String-based value accessors!
+		// 	},
+		// 	{
+		// 		Header: 'Action',
+		// 		Cell: props => <div>&nbsp;<button  onClick={ (e) => {    this.handleChange(props.original);  }}>Edit</button>&nbsp;&nbsp;<button  onClick={ (e) => {   this.deleteRow(props.original);  }} >Delete</button>&nbsp;</div>
+		// 	}
+		// ]
+		return (
+			<React.Fragment>
+				<div className='container-fluid'>
+					<div className='row'>
+						<div className='col-lg-2 col-sm-2 col-md-2 col-xs-12'>
+							<select
+								className='customSelect'
+								onChange={this.handleChange}
+								value={value}>
+								{options.map((item, index) => (
+									<option key={index} value={item.movie_title}>
+										{item.movie_title}
+									</option>
+								))}
+							</select>
+						</div>
+						<div className='col-lg-10 col-sm-10 col-md-10 col-xs-12'>
+							<span className='h3'>Select Student is : {value}</span>
+							<span className='h2'>{this.state.msg}</span>
+							{/* <ReactTable data={ this.state.selectedData1 } style={{ textTransform: 'uppercase' }} columns={ columns }   defaultPageSize={ 5 } /> */}
 
-              <div className='table-responsive'>
-                <table className='table table-striped'>
-                  <thead>
-                    <tr>
-                      <th>Director Name</th>
-                      <th>Movie Title</th>
-                      <th>Country</th>
-                      <th>Plot Keywords</th>
-                      <th>Title Year</th>
-                      <th>Content Rating</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.state.selectedData ? (
-                      <tr>
-                        <td>{this.state.selectedData.director_name}</td>
-                        <td>{this.state.selectedData.movie_title}</td>
-                        <td>{this.state.selectedData.country}</td>
-                        <td>{this.state.selectedData.plot_keywords}</td>
-                        <td>{this.state.selectedData.title_year}</td>
-                        <td>{this.state.selectedData.content_rating}</td>
-                      </tr>
-                    ) : (
-                      <tr>
-                        <td colSpan='7' align='center'>
-                          --NO DATA SELECTED--
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div className='row'>
-            <Modal open={this.state.open} onClose={this.onCloseModal}>
-              <form className='form-horizontal' onSubmit={this.handleSubmit}>
-                <div className='form-group'>
-                  <label className='control-label col-sm-12' name='fname'>
-                    UserName :
-                    <input
-                      type='text'
-                      className='border-0'
-                      id='username'
-                      name='UserName'
-                      value={this.state.UserName}
-                      onChange={this.inputHandleChangeAge.bind(this)}
-                      ref={node => (this.inputNode = node)}
-                      readOnly
-                    />
-                  </label>
-                </div>
-                <div className='form-group'>
-                  <label className='control-label col-sm-2' name='fname'>
-                    First Name :
-                  </label>
-                  <div className='col-sm-10'>
-                    <input
-                      type='text'
-                      className='form-control'
-                      id='fname'
-                      name='FirstName'
-                      value={this.state.FirstName}
-                      onChange={this.inputHandleChangeFirstName.bind(this)}
-                      ref={node => (this.inputNode = node)}
-                    />
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <label className='control-label col-sm-2' name='lname'>
-                    Last Name :
-                  </label>
-                  <div className='col-sm-10'>
-                    <input
-                      type='text'
-                      className='form-control'
-                      id='lname'
-                      name='LastName'
-                      value={this.state.LastName}
-                      onChange={this.inputHandleChangeLastName.bind(this)}
-                      ref={node => (this.inputNode = node)}
-                    />
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <label className='control-label col-sm-2' name='htown'>
-                    Home Town:
-                  </label>
-                  <div className='col-sm-10'>
-                    <input
-                      type='text'
-                      className='form-control'
-                      id='htown'
-                      name='HomeTown'
-                      value={this.state.HomeTown}
-                      onChange={this.inputHandleChangeHomeTown.bind(this)}
-                      ref={node => (this.inputNode = node)}
-                    />
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <label className='control-label col-sm-2' name='job'>
-                    job :
-                  </label>
-                  <div className='col-sm-10'>
-                    <input
-                      type='text'
-                      className='form-control'
-                      id='job'
-                      name='Job'
-                      value={this.state.Job}
-                      onChange={this.inputHandleChangeJob.bind(this)}
-                      ref={node => (this.inputNode = node)}
-                    />
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <label className='control-label col-sm-2' htmlFor='age'>
-                    Age :
-                  </label>
-                  <div className='col-sm-10'>
-                    <input
-                      type='text'
-                      className='form-control'
-                      id='age'
-                      name='Age'
-                      value={this.state.Age}
-                      onChange={this.inputHandleChangeAge.bind(this)}
-                      ref={node => (this.inputNode = node)}
-                    />
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <div className='col-sm-6 col-xs-6'>
-                    <input type='submit' value='Submit' />
-                  </div>
-                  <div className='col-sm-6 col-xs-6'>
-                    <input
-                      type='reset'
-                      onClick={this.onCloseModal}
-                      value='Cancel'
-                    />
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <span className='h2'>{this.state.msg}</span>
-                </div>
-              </form>
-            </Modal>
-          </div>
-        </div>
-      </React.Fragment>
-    );
-  }
+							<div className='table-responsive'>
+								<table className='table table-striped'>
+									<thead>
+										<tr>
+											<th>Director Name</th>
+											<th>Movie Title</th>
+											<th>Country</th>
+											<th>Plot Keywords</th>
+											<th>Title Year</th>
+											<th>Content Rating</th>
+										</tr>
+									</thead>
+									<tbody>
+										{this.state.selectedData ? (
+											<tr>
+												<td>{this.state.selectedData.director_name}</td>
+												<td>{this.state.selectedData.movie_title}</td>
+												<td>{this.state.selectedData.country}</td>
+												<td>{this.state.selectedData.plot_keywords}</td>
+												<td>{this.state.selectedData.title_year}</td>
+												<td>{this.state.selectedData.content_rating}</td>
+											</tr>
+										) : (
+											<tr>
+												<td colSpan='7' align='center'>
+													--NO DATA SELECTED--
+												</td>
+											</tr>
+										)}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div className='row'>
+						<Modal open={this.state.open} onClose={this.onCloseModal}>
+							<form className='form-horizontal' onSubmit={this.handleSubmit}>
+								<div className='form-group'>
+									<label className='control-label col-sm-12' name='fname'>
+										UserName :
+										<input
+											type='text'
+											className='border-0'
+											id='username'
+											name='UserName'
+											value={this.state.UserName}
+											onChange={this.inputHandleChangeAge.bind(this)}
+											ref={node => (this.inputNode = node)}
+											readOnly
+										/>
+									</label>
+								</div>
+								<div className='form-group'>
+									<label className='control-label col-sm-2' name='fname'>
+										First Name :
+									</label>
+									<div className='col-sm-10'>
+										<input
+											type='text'
+											className='form-control'
+											id='fname'
+											name='FirstName'
+											value={this.state.FirstName}
+											onChange={this.inputHandleChangeFirstName.bind(this)}
+											ref={node => (this.inputNode = node)}
+										/>
+									</div>
+								</div>
+								<div className='form-group'>
+									<label className='control-label col-sm-2' name='lname'>
+										Last Name :
+									</label>
+									<div className='col-sm-10'>
+										<input
+											type='text'
+											className='form-control'
+											id='lname'
+											name='LastName'
+											value={this.state.LastName}
+											onChange={this.inputHandleChangeLastName.bind(this)}
+											ref={node => (this.inputNode = node)}
+										/>
+									</div>
+								</div>
+								<div className='form-group'>
+									<label className='control-label col-sm-2' name='htown'>
+										Home Town:
+									</label>
+									<div className='col-sm-10'>
+										<input
+											type='text'
+											className='form-control'
+											id='htown'
+											name='HomeTown'
+											value={this.state.HomeTown}
+											onChange={this.inputHandleChangeHomeTown.bind(this)}
+											ref={node => (this.inputNode = node)}
+										/>
+									</div>
+								</div>
+								<div className='form-group'>
+									<label className='control-label col-sm-2' name='job'>
+										job :
+									</label>
+									<div className='col-sm-10'>
+										<input
+											type='text'
+											className='form-control'
+											id='job'
+											name='Job'
+											value={this.state.Job}
+											onChange={this.inputHandleChangeJob.bind(this)}
+											ref={node => (this.inputNode = node)}
+										/>
+									</div>
+								</div>
+								<div className='form-group'>
+									<label className='control-label col-sm-2' htmlFor='age'>
+										Age :
+									</label>
+									<div className='col-sm-10'>
+										<input
+											type='text'
+											className='form-control'
+											id='age'
+											name='Age'
+											value={this.state.Age}
+											onChange={this.inputHandleChangeAge.bind(this)}
+											ref={node => (this.inputNode = node)}
+										/>
+									</div>
+								</div>
+								<div className='form-group'>
+									<div className='col-sm-6 col-xs-6'>
+										<input type='submit' value='Submit' />
+									</div>
+									<div className='col-sm-6 col-xs-6'>
+										<input
+											type='reset'
+											onClick={this.onCloseModal}
+											value='Cancel'
+										/>
+									</div>
+								</div>
+								<div className='form-group'>
+									<span className='h2'>{this.state.msg}</span>
+								</div>
+							</form>
+						</Modal>
+					</div>
+				</div>
+			</React.Fragment>
+		);
+	}
 }
 
 export default Search;
