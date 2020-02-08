@@ -180,6 +180,7 @@ class App extends Component {
 							data={this.state.data}
 							style={{ textTransform: 'uppercase' }}
 							columns={columns}
+							showPagination={false}
 							defaultPageSize={5}
 						/>
 					</div>
