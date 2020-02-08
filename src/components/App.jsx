@@ -6,6 +6,8 @@ import ReactTable from 'react-table';
 import { connect } from 'react-redux';
 
 import Modal from 'react-responsive-modal';
+import { ReactComponent as DownArrowSVG } from '../assets/images/icon-down-arrow.svg';
+import { ReactComponent as UpArrowSVG } from '../assets/images/icon-up-arrow.svg';
 
 import 'react-table/react-table.css';
 
@@ -22,11 +24,12 @@ class App extends Component {
 		msg: '',
 		open: false,
 		showWarning: true,
-		propsExample: 'Deepak'
+		propsExample: 'Deepak',
+		sortDesc: {}
 	};
 
 	renderLoadButton = () => {
-		// console.log('TEST :', this.props);
+		// // console.log('TEST :', this.props);
 		const { isSignedIn } = this.props.auth;
 
 		if (isSignedIn) {
@@ -85,8 +88,12 @@ class App extends Component {
 			}
 		})
 			.then(res => res.json())
-			.then(response => console.log('Success:', JSON.stringify(response)))
-			.catch(error => console.error('Error:', error));
+			.then(response => {
+				// console.log('Success:', JSON.stringify(response));
+			})
+			.catch(error => {
+				// console.error('Error:', error);
+			});
 	};
 	onOpenModal = () => {
 		this.setState({ open: true });
@@ -126,36 +133,160 @@ class App extends Component {
 				this.setState({ data: json });
 			})
 			.catch(function(error) {
-				console.log('error:', error);
+				// console.log('error:', error);
 			});
 	};
-
+	sortFunction = e => {
+		// console.log('option : ', e);
+		const sortDesc = { [e[0].id]: e[0].desc };
+		this.setState({ sortDesc });
+	};
 	render() {
-		// console.log('TEST :',props)
+		// console.log('main TEST :', this.state.data);
+
 		const columns = [
 			{
-				Header: 'Director Name',
-				accessor: 'director_name' // String-based value accessors!
+				// Header: 'Director Name',
+				accessor: 'director_name', // String-based value accessors!,
+				Header: rowInfo => {
+					//  console.log(
+					// 		'Director Name - SORT : ',
+					// 		rowInfo,
+					// 		'asc :',
+					// 		this.state.sortDesc['director_name']
+					// 	);
+					return (
+						<>
+							<span>Director Name</span>
+							<DownArrowSVG
+								className={`icon down --arrow ${
+									this.state.sortDesc['director_name'] ? 'active' : ''
+								}`}
+							/>
+
+							<UpArrowSVG
+								className={`icon up --arrow ${
+									this.state.sortDesc['director_name'] ? '' : 'active'
+								}`}
+							/>
+						</>
+					);
+				}
 			},
 			{
-				Header: 'Movie Title',
-				accessor: 'movie_title' // String-based value accessors!
+				// Header: 'Movie Title',
+				accessor: 'movie_title', // String-based value accessors!
+				Header: rowInfo => {
+					// console.log('SORT : ', rowInfo, this.state.sortDesc);
+					return (
+						<>
+							<span>Movie Title</span>
+							<DownArrowSVG
+								className={`icon down --arrow ${
+									this.state.sortDesc['movie_title'] ? 'active' : ''
+								}`}
+							/>
+
+							<UpArrowSVG
+								className={`icon up --arrow ${
+									this.state.sortDesc['movie_title'] ? '' : 'active'
+								}`}
+							/>
+						</>
+					);
+				}
 			},
 			{
-				Header: 'Country',
-				accessor: 'country' // String-based value accessors!
+				// Header: 'Country',
+				accessor: 'country', // String-based value accessors!
+				Header: rowInfo => {
+					// console.log('SORT : ', rowInfo, this.state.sortDesc);
+					return (
+						<>
+							<span>Country</span>
+							<DownArrowSVG
+								className={`icon down --arrow ${
+									this.state.sortDesc['country'] ? 'active' : ''
+								}`}
+							/>
+
+							<UpArrowSVG
+								className={`icon up --arrow ${
+									this.state.sortDesc['country'] ? '' : 'active'
+								}`}
+							/>
+						</>
+					);
+				}
 			},
 			{
-				Header: 'Plot Keywords',
-				accessor: 'plot_keywords' // String-based value accessors!
+				// Header: 'Plot Keywords',
+				accessor: 'plot_keywords', // String-based value accessors!
+				Header: rowInfo => {
+					// console.log('SORT : ', rowInfo, this.state.sortDesc);
+					return (
+						<>
+							<span>Plot Keywords</span>
+							<DownArrowSVG
+								className={`icon down --arrow ${
+									this.state.sortDesc['plot_keywords'] ? 'active' : ''
+								}`}
+							/>
+
+							<UpArrowSVG
+								className={`icon up --arrow ${
+									this.state.sortDesc['plot_keywords'] ? '' : 'active'
+								}`}
+							/>
+						</>
+					);
+				}
 			},
 			{
-				Header: 'Title Year',
-				accessor: 'title_year' // String-based value accessors!
+				// Header: 'Title Year',
+				accessor: 'title_year', // String-based value accessors!
+				Header: rowInfo => {
+					// console.log('SORT : ', rowInfo, this.state.sortDesc);
+					return (
+						<>
+							<span>Title Year</span>
+							<DownArrowSVG
+								className={`icon down --arrow ${
+									this.state.sortDesc['title_year'] ? 'active' : ''
+								}`}
+							/>
+
+							<UpArrowSVG
+								className={`icon up --arrow ${
+									this.state.sortDesc['title_year'] ? '' : 'active'
+								}`}
+							/>
+						</>
+					);
+				}
 			},
 			{
-				Header: 'Content Rating',
-				accessor: 'content_rating' // String-based value accessors!
+				// Header: 'Content Rating',
+				accessor: 'content_rating', // String-based value accessors!
+				Header: rowInfo => {
+					// console.log('SORT : ', rowInfo, this.state.sortDesc);
+					return (
+						<>
+							<span>Content Rating</span>
+							<DownArrowSVG
+								className={`icon down --arrow ${
+									this.state.sortDesc['content_rating'] ? 'active' : ''
+								}`}
+							/>
+
+							<UpArrowSVG
+								className={`icon up --arrow ${
+									this.state.sortDesc['content_rating'] ? '' : 'active'
+								}`}
+							/>
+						</>
+					);
+				}
 			}
 		];
 		return (
@@ -178,10 +309,14 @@ class App extends Component {
 					<div className='col-lg-12 col-sm-12 col-md-12 col-xs-12'>
 						<ReactTable
 							data={this.state.data}
-							style={{ textTransform: 'uppercase' }}
 							columns={columns}
+							onSortedChange={e => {
+								this.sortFunction(e);
+							}}
+							className='react-table'
+							style={{ textTransform: 'uppercase' }}
 							showPagination={false}
-							defaultPageSize={5}
+							defaultPageSize={100}
 						/>
 					</div>
 				</div>
