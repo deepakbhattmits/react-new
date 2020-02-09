@@ -37,7 +37,7 @@ class SearchRecipe extends Component {
 			});
 	};
 	getOption = e => {
-		console.log('selected option : ', e.target.value);
+		// console.log('selected option : ', e.target.value);
 		this.setState({ selectedOption: e.target.option });
 		fetch(
 			`https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies`
