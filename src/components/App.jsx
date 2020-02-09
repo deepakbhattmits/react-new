@@ -317,6 +317,8 @@ class App extends Component {
 							style={{ textTransform: 'uppercase' }}
 							showPagination={false}
 							defaultPageSize={100}
+							loadingText='Loading...'
+							noDataText='No rows found'
 						/>
 					</div>
 				</div>
