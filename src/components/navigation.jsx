@@ -7,7 +7,7 @@ import GoogleAuth from './GoogleAuth';
 
 class Navigation extends React.Component {
 	render() {
-		// console.log('TEST :> ', props);
+		console.log('TEST :> ');
 		return (
 			<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 				<div className='App-header'>
