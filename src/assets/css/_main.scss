@@ -60,3 +60,94 @@
 		}
 	}
 }
+
+/**
+ * /* scrolltop style s
+ *
+ * @format
+ */
+
+.long {
+	display: none;
+	width: 100%;
+
+	&.scroll {
+		display: block;
+	}
+	.scroll {
+		z-index: 2;
+		width: 52px;
+		height: 52px;
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		border-radius: 5px;
+		border: none;
+		color: #fff;
+		border-color: transparent;
+		background-color: #7773a8;
+		font: 15px/1.35 Conv_Gotham Book Regular, Raleway, Lato, Helvetica, Arial,
+			sans-serif;
+		font-weight: 600;
+		cursor: pointer;
+		&:focus {
+			outline: 0;
+		}
+		.fa-angle-up:before {
+			font-size: 20px;
+			font-weight: 800;
+		}
+	}
+	.arrow-up {
+		color: white;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -9px;
+		margin-left: -5px;
+	}
+}
+/* scrolltop style e */
+
+// search s
+
+.searchForm {
+	margin: 10px 0;
+}
+
+// search e
+
+// nav styles s
+.nav-item {
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 3px;
+		background: #2098d1;
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		-webkit-transition-property: transform;
+		transition-property: transform;
+		-webkit-transition-duration: 0.3s;
+		transition-duration: 0.3s;
+		-webkit-transition-timing-function: ease-out;
+		transition-timing-function: ease-out;
+	}
+	&:hover {
+		&:before {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+		.nav-menu {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+}
+
+// nav styles e
