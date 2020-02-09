@@ -1,9 +1,4 @@
-/**
- * /*
- * * react-table styles start
- *
- * @format
- */
+/** @format */
 
 .ReactTable {
 	&.react-table {
@@ -38,7 +33,8 @@
 				// @include Animation;
 			}
 		}
-		.rt-thead {
+		// .rt-thead {
+		// }
 		.rt-tbody {
 			> .rt-tr-group {
 				> .-odd,
@@ -52,16 +48,15 @@
 						padding: 10px 5px;
 					}
 				}
-
-				.rt-tr-group {
-					.rt-td.group {
-						display: none;
-					}
+			}
+			.rt-tr-group {
+				&:hover {
+					box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+				}
+				.rt-td.group {
+					display: none;
 				}
 			}
 		}
 	}
 }
-/*
-** react-table styles start
-*/
