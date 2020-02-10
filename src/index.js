@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/index.css';
-import './assets/css/main.css';
 import './assets/css/_main.scss';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
