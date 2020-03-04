@@ -133,7 +133,7 @@ class Search extends Component {
 				// this.setState({
 				//   msg : resp["error"]
 				// })
-				// console.log(xhr, resp, text);
+				console.log(xhr, resp, text);
 			}
 		});
 	};
