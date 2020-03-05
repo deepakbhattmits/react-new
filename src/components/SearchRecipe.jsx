@@ -28,7 +28,7 @@ class SearchRecipe extends Component {
 			.then(response => response.json())
 
 			.then(json => {
-				// console.log('test: ',json, "TEST : ",json.data);
+				console.log('test: ', json, 'TEST : ', json.data);
 				this.setState({ data: json });
 				console.log(this.state.data);
 			})
