@@ -6,7 +6,7 @@ const useFormInput = () => {
 	const [fields, setFields] = useState({});
 	const handleChange = e => {
 		const { name, value } = e.target;
-		console.log('Fields : ', fields);
+		// console.log('Fields : ', fields);
 		if (name === 'mobileno') {
 			if (/^\d+$/.test(value)) {
 				setFields({ ...fields, [name]: value });
