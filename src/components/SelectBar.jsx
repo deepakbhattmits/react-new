@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-const SelectBar = props => {
-	// console.log(`NEW SELECT BAR: ${props.getOption}`);
+const SelectBar = (props) => {
+	// console.log(`NEW SELECT BAR : ${props.getOption}`);
 	return (
 		<div>
 			<select
