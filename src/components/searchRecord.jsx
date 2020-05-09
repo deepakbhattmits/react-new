@@ -25,7 +25,7 @@ class SearchRecord extends Component {
 			data: [],
 			query: '',
 			filteredData: [],
-			selectValue: '-- select any field --'
+			selectValue: '-- select any field --',
 		};
 	}
 	componentDidMount() {
@@ -36,30 +36,30 @@ class SearchRecord extends Component {
 		0: { items: 1 },
 		600: { items: 2 },
 		1024: { items: 4 },
-		1360: { items: 6 }
+		1360: { items: 6 },
 	};
 	getData = () => {
 		fetch(
 			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
 		)
-			.then(response => response.json())
+			.then((response) => response.json())
 
-			.then(json => {
+			.then((json) => {
 				// console.log('test old : ',json);
 				this.setState({ data: json });
-				// console.log('test new  : ', this.state.data);
+				// console.log('test new  :> ', this.state.data);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				// console.log("error :", error);
 			});
 	};
-	onChangeInput = e => {
+	onChangeInput = (e) => {
 		var result = '';
 		const query = e.target.value;
 		// console.log("test serach :",e.target.value);
 		var updatedList = this.state.data;
 		if (query !== '') {
-			updatedList = updatedList.filter(function(item) {
+			updatedList = updatedList.filter(function (item) {
 				// return item.movie_title.toLowerCase().search(
 				//       query.toLowerCase()) !== -1;
 				// console.log("TEST :",item);
@@ -107,23 +107,23 @@ class SearchRecord extends Component {
 	getInitialState = () => {
 		return this.state.selectValue;
 	};
-	handleChange = e => {
+	handleChange = (e) => {
 		this.setState({ selectValue: e.target.value });
 	};
 
 	render() {
-		const handleOnDragStart = e => e.preDefault();
+		const handleOnDragStart = (e) => e.preDefault();
 		const { data } = this.state;
 
 		const style = {
 			image: {
 				border: '1px solid #ccc',
-				background: '#fefefe'
+				background: '#fefefe',
 			},
 			prodImg: {
 				display: 'inline-block',
-				margin: '0 2px'
-			}
+				margin: '0 2px',
+			},
 		};
 		var message = 'You selected ' + this.state.selectValue;
 		return (
@@ -209,7 +209,7 @@ class SearchRecord extends Component {
 								/>
 							</form>
 							<div>
-								{this.state.filteredData.map(i => (
+								{this.state.filteredData.map((i) => (
 									<p>{i.name}</p>
 								))}
 							</div>
