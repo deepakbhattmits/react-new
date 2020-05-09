@@ -16,26 +16,44 @@ import ListUsers from '../components/ListUsers';
 import SearchRecipe from '../components/SearchRecipe';
 
 const ReactRouter = () => {
-  // console.log('TEST : ')
-  return (
-    <Router>
-      <div>
-        <Header />
-        <div className='container-fluid'>
-          <Route exact path='/' component={App} />
-          <Route path='/Search' component={Search} />
-          <Route path='/Submit' component={Submit} />
-          <Route path='/searchRecord' component={SearchRecord} />
-          <Route path='/register' component={RegistrationForm} />
-          <Route path='/SimpleForm' component={SimpleForm} />
-          <Route path='/ListUsers' component={ListUsers} />
-          <Route path='/searchR' component={SearchRecipe} />
-          <Route path='/registerHook' component={RegistrationFormHooks} />
-        </div>
-        <Footer />
-      </div>
-    </Router>
-  );
+	// console.log('TEST : ')
+	return (
+		<Router>
+			<div>
+				<Header />
+				<div className='container-fluid'>
+					<Route exact path='/'>
+						<App />
+					</Route>
+					<Route path='/Search'>
+						<Search />
+					</Route>
+					<Route path='/Submit'>
+						<Submit />
+					</Route>
+					<Route path='/searchRecord'>
+						<SearchRecord />
+					</Route>
+					<Route path='/register'>
+						<RegistrationForm />
+					</Route>
+					<Route path='/SimpleForm'>
+						<SimpleForm />
+					</Route>
+					<Route path='/ListUsers'>
+						<ListUsers />
+					</Route>
+					<Route path='/searchR'>
+						<SearchRecipe />
+					</Route>
+					<Route path='/registerHook'>
+						<RegistrationFormHooks />
+					</Route>
+				</div>
+				<Footer />
+			</div>
+		</Router>
+	);
 };
 
 export default ReactRouter;
