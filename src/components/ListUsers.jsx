@@ -26,13 +26,13 @@ class ListUser extends Component {
 		);
 	}
 	render() {
-		// console.log('TEST : =', this.props.isSignedIn);
+		// console.log('TEST :', this.props.isSignedIn);
 		return <div className='ui cards'>{this.renderCard()}</div>;
 	}
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
-		users: Object.values(state.users)
+		users: Object.values(state.users),
 	};
 };
 export default connect(mapStateToProps, { listUser })(ListUser);
