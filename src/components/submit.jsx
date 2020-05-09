@@ -14,12 +14,12 @@ class Submit extends Component {
 			UserName: '',
 			data: [],
 			selectedData: [],
-			msg: ''
+			msg: '',
 		};
 		// this.changeHandler = this.changeHandler.bind(this);
 		// this.submitHandler = this.submitHandler.bind(this);
 	}
-	submitHandler = e => {
+	submitHandler = (e) => {
 		var form_data = {
 			FirstName: this.state.FirstName,
 			LastName: this.state.LastName,
@@ -29,7 +29,7 @@ class Submit extends Component {
 			UserName: this.state.UserName,
 			statusType: 'active',
 			check: false,
-			qryType: 'INSERT'
+			qryType: 'INSERT',
 		};
 		$.ajax({
 			url: 'http://localhost/react-new-local/api/submit.php',
@@ -37,18 +37,18 @@ class Submit extends Component {
 
 			data: form_data,
 			dataType: 'json',
-			success: function(response) {
+			success: function (response) {
 				this.setState({ msg: response['success'] });
 				document.form1.reset();
 			}.bind(this),
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
 				// console.log(xhr, resp, text);
-			}
+			},
 		});
 
 		e.preventDefault();
 	};
-	changeHandler = e => {
+	changeHandler = (e) => {
 		if (e.target.name !== 'check')
 			this.setState({ [e.target.name]: e.target.value });
 		else if (e.target.name === 'check' && e.target.checked)
@@ -56,7 +56,7 @@ class Submit extends Component {
 		else this.setState({ [e.target.name]: e.target.checked });
 	};
 	render() {
-		console.log('TEST: ', props);
+		// console.log('TEST: ', props);
 		return (
 			<React.Fragment>
 				<div className='container-fluid'>
