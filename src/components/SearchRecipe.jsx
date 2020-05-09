@@ -11,10 +11,10 @@ class SearchRecipe extends Component {
 	state = {
 		data: [],
 		movies: [],
-		selectedOption: '-- Select Option --'
+		selectedOption: '-- Select Option --',
 	};
 
-	getRecipe = e => {
+	getRecipe = (e) => {
 		const term = e.target.elements.recipeName.value;
 		e.preventDefault();
 		// console.log('term ', term);
@@ -22,34 +22,34 @@ class SearchRecipe extends Component {
 			`https://www.food2fork.com/api/search?key=${API_KEY}&q=${term}&count=5`,
 			{
 				mode: 'no-cors',
-				credentials: 'include'
+				credentials: 'include',
 			}
 		)
-			.then(response => response.json())
+			.then((response) => response.json())
 
-			.then(json => {
-				console.log('test: ', json, 'TEST : ', json.data);
+			.then((json) => {
+				// console.log('test: ', json, 'TEST : ', json.data);
 				this.setState({ data: json });
 				console.log(this.state.data);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				// console.log(" error :", error);
 			});
 	};
-	getOption = e => {
+	getOption = (e) => {
 		console.log('selected option : ', e.target.value);
 		this.setState({ selectedOption: e.target.option });
 		fetch(
 			`https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies`
 		)
-			.then(response => response.json())
+			.then((response) => response.json())
 
-			.then(json => {
+			.then((json) => {
 				// console.log('pre test : ',json, "TEST : ",json.data);
 				this.setState({ movies: json });
 				console.log('loaded state', this.state.movies);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				// console.log("error:", error);
 			});
 		// this.state.data.recipes.filter((el,i,self) => { return el['title'] === (e.target.value) ? this.setState({data: self }): this.setState({ data: self })} );
