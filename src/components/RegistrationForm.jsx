@@ -6,17 +6,17 @@ import { connect } from 'react-redux';
 class RegistrationForm extends Component {
 	state = {
 		fields: {},
-		errorMessages: {}
+		errorMessages: {},
 	};
-	handleChange = e => {
+	handleChange = (e) => {
 		let fields = this.state.fields;
-		// console.log('TEST handlechange: ', e.target.name);
+		// console.log('TEST handlechange>: ', e.target.name);
 		fields[e.target.name] = e.target.value;
 		this.setState({
-			fields
+			fields,
 		});
 	};
-	submitForm = e => {
+	submitForm = (e) => {
 		e.preventDefault();
 		if (this.validateForm()) {
 			// console.log('Form Submited',this.state.fields);
@@ -139,9 +139,9 @@ class RegistrationForm extends Component {
 		);
 	}
 }
-const mapStatetoProps = state => {
+const mapStatetoProps = (state) => {
 	return {
-		auth: state.auth
+		auth: state.auth,
 	};
 };
 export default connect(mapStatetoProps, null)(RegistrationForm);
