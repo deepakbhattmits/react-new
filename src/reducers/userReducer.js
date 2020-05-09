@@ -5,7 +5,7 @@ import { CREATE_USER, LIST_USERS } from '../constants/type';
 export default (state = {}, action) => {
 	switch (action.type) {
 		case CREATE_USER:
-			console.log('action : ', action.payload);
+			// console.log('action : ', action.payload);
 			return { ...state, [action.payload.id]: action.payload };
 		case LIST_USERS:
 			return { ...state, ..._.mapKeys(action.payload, 'id') };
