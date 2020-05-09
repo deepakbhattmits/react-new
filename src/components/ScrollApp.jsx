@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 
 class ScrollButton extends Component {
 	state = {
-		intervalId: 0
+		intervalId: 0,
 	};
 
 	scrollStep = () => {
-		// console.log('test Scroll:>');
+		// console.log('test Scroll :>');
 		if (window.pageYOffset === 0) {
 			clearInterval(this.state.intervalId);
 		}
