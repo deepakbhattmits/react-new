@@ -17,7 +17,7 @@ class SimpleForm extends Component {
 	}
 
 	input = ({ input, label, placeholder, meta }) => {
-		// console.log(' TEST:', meta);
+		// console.log(' TEST :', meta);
 		const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
 		return (
 			<div className={className}>
@@ -70,7 +70,7 @@ class SimpleForm extends Component {
 			</div>
 		);
 	};
-	onSubmit = formProps => {
+	onSubmit = (formProps) => {
 		console.log(formProps);
 		this.props.createUser(formProps);
 	};
@@ -141,7 +141,7 @@ class SimpleForm extends Component {
 		);
 	}
 }
-const validate = formProps => {
+const validate = (formProps) => {
 	const errors = {};
 	if (!formProps.firstName) {
 		errors.firstName = `you must enter firstname !`;
@@ -166,6 +166,6 @@ const validate = formProps => {
 };
 const formWrapped = reduxForm({
 	form: 'simple',
-	validate
+	validate,
 })(SimpleForm);
 export default connect(null, { createUser })(formWrapped);
