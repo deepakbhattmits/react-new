@@ -35,7 +35,7 @@ class Search extends Component {
 			options: [],
 			value: '',
 			open: false,
-			statusType: 'active'
+			statusType: 'active',
 		};
 
 		// $.ajax({
@@ -57,14 +57,14 @@ class Search extends Component {
 		fetch(
 			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
 		)
-			.then(response => response.json())
+			.then((response) => response.json())
 
-			.then(json => {
+			.then((json) => {
 				// console.log('TEST: ', json);
 				this.setState({ options: json });
 				// console.log(this.state.selectedData);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				// console.log("error res:", error);
 			});
 	}
@@ -73,38 +73,38 @@ class Search extends Component {
 	//     // this.setState({value: e.target.value});
 	//     console.log('A name was edited: ', e.target.value);
 	// }
-	inputHandleChangeFirstName = e => {
+	inputHandleChangeFirstName = (e) => {
 		// console.log("FirstName : ",e.target.value);
 		this.setState({
-			FirstName: e.target.value
+			FirstName: e.target.value,
 		});
 	};
-	inputHandleChangeLastName = e => {
+	inputHandleChangeLastName = (e) => {
 		this.setState({
-			LastName: e.target.value
+			LastName: e.target.value,
 		});
 	};
-	inputHandleChangeHomeTown = e => {
+	inputHandleChangeHomeTown = (e) => {
 		this.setState({
-			HomeTown: e.target.value
+			HomeTown: e.target.value,
 		});
 	};
-	inputHandleChangeJob = e => {
+	inputHandleChangeJob = (e) => {
 		this.setState({
-			Job: e.target.value
+			Job: e.target.value,
 		});
 	};
-	inputHandleChangeAge = e => {
+	inputHandleChangeAge = (e) => {
 		this.setState({
-			Age: e.target.value
+			Age: e.target.value,
 		});
 	};
-	inputHandleChangeUserName = e => {
+	inputHandleChangeUserName = (e) => {
 		this.setState({
-			UserName: e.target.value
+			UserName: e.target.value,
 		});
 	};
-	handleSubmit = e => {
+	handleSubmit = (e) => {
 		e.preDefault();
 		let edited_data = {
 			FirstName: e.target.FirstName.value,
@@ -114,7 +114,7 @@ class Search extends Component {
 			Age: e.target.Age.value,
 			UserName: e.target.UserName.value,
 			statusType: 'active',
-			qryType: 'EDIT'
+			qryType: 'EDIT',
 		};
 		// console.log("EDITED DATA : ",edited_data);
 
@@ -123,18 +123,18 @@ class Search extends Component {
 			type: 'POST',
 			dataType: 'json',
 			data: edited_data,
-			success: function(response) {
+			success: function (response) {
 				this.getData();
 				this.setState({
-					msg: response['success']
+					msg: response['success'],
 				});
 			}.bind(this),
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
 				// this.setState({
 				//   msg : resp["error"]
 				// })
-				// console.log(xhr, resp, text);
-			}
+				// console.log('TEST : ', xhr, resp, text);
+			},
 		});
 	};
 	onOpenModal = () => {
@@ -144,10 +144,10 @@ class Search extends Component {
 		this.setState({ open: false });
 		this.getData();
 		this.setState({
-			msg: ''
+			msg: '',
 		});
 	};
-	editRow = e => {
+	editRow = (e) => {
 		// console.log("TEST-edit",e["FirstName"]);
 		this.onOpenModal();
 		this.setState({
@@ -156,24 +156,24 @@ class Search extends Component {
 			HomeTown: e['HomeTown'],
 			Job: e['Job'],
 			Age: e['Age'],
-			UserName: e['UserName']
+			UserName: e['UserName'],
 		});
 	};
-	deleteRow = e => {
+	deleteRow = (e) => {
 		// console.log("WANT DELETE : ",e["UserName"]);
 		let delete_data = {
 			UserName: e['UserName'],
 			statusType: 'deactive',
-			qryType: 'DELETE'
+			qryType: 'DELETE',
 		};
 		$.ajax({
 			url: 'http://localhost/react-new-local/api/recordDelete.php',
 			type: 'POST',
 			dataType: 'json',
 			data: delete_data,
-			success: function(response) {
+			success: function (response) {
 				this.setState({
-					msg: response['success']
+					msg: response['success'],
 				});
 				this.setState({ value: '' });
 				// this.setState({ selectedData : response["success"] });
@@ -181,16 +181,16 @@ class Search extends Component {
 				// this.handleChange();
 				this.getData();
 			}.bind(this),
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
 				// console.log(xhr, resp, text);
-			}
+			},
 		});
 	};
-	handleChange = e => {
+	handleChange = (e) => {
 		this.setState({ value: e.target.value });
 		// console.log("test selected student data : ", e.target.value);
 		var search_data = {
-			movie_title: e.target.value
+			movie_title: e.target.value,
 		};
 		// console.log('get the value :',this.state.options);
 		for (var i = 0; i < this.state.options.length; i++) {
@@ -207,14 +207,14 @@ class Search extends Component {
 		fetch(
 			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
 		)
-			.then(response => response.json())
+			.then((response) => response.json())
 
-			.then(json => {
+			.then((json) => {
 				// console.log('pre test : ',json, "TEST : ",json.data);
 
 				this.setState({ options: json });
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				// console.log("error:", error);
 			});
 	}
@@ -354,7 +354,7 @@ class Search extends Component {
 											name='UserName'
 											value={this.state.UserName}
 											onChange={this.inputHandleChangeAge.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 											readOnly
 										/>
 									</label>
@@ -371,7 +371,7 @@ class Search extends Component {
 											name='FirstName'
 											value={this.state.FirstName}
 											onChange={this.inputHandleChangeFirstName.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -387,7 +387,7 @@ class Search extends Component {
 											name='LastName'
 											value={this.state.LastName}
 											onChange={this.inputHandleChangeLastName.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -403,7 +403,7 @@ class Search extends Component {
 											name='HomeTown'
 											value={this.state.HomeTown}
 											onChange={this.inputHandleChangeHomeTown.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -419,7 +419,7 @@ class Search extends Component {
 											name='Job'
 											value={this.state.Job}
 											onChange={this.inputHandleChangeJob.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -435,7 +435,7 @@ class Search extends Component {
 											name='Age'
 											value={this.state.Age}
 											onChange={this.inputHandleChangeAge.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
