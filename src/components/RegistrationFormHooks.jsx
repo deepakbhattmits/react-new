@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 
 const useFormInput = () => {
 	const [fields, setFields] = useState({});
-	const handleChange = e => {
+	const handleChange = (e) => {
 		const { name, value } = e.target;
-		// console.log('Fields : ', fields);
+		// console.log('Fields > ', fields);
 		if (name === 'mobileno') {
 			if (/^\d+$/.test(value)) {
 				setFields({ ...fields, [name]: value });
@@ -15,13 +15,13 @@ const useFormInput = () => {
 			setFields({ ...fields, [name]: value });
 		}
 	};
-	const handleResetForm = data => {
+	const handleResetForm = (data) => {
 		console.log('TEST RESET :', data);
 		setFields(data);
 	};
 	const actions = {
 		handleChange: handleChange,
-		handleResetForm: handleResetForm
+		handleResetForm: handleResetForm,
 	};
 	return [fields, actions];
 };
@@ -33,7 +33,7 @@ const RegistrationFormHooks = () => {
 	//     errorMessages: {},
 	// };
 	const [errorMessages, setErrorMessages] = useState({});
-	const submitForm = e => {
+	const submitForm = (e) => {
 		e.preventDefault();
 		if (validateForm()) {
 			console.log('Form Submited : ', fields);
