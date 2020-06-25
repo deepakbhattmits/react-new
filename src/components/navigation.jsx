@@ -63,8 +63,8 @@ class Navigation extends React.Component {
 							</NavLink>
 						</li>
 						<li className='nav-item'>
-							<NavLink exact to='/ListUsers' className='nav-menu'>
-								Users
+							<NavLink exact to='/IPAddress' className='nav-menu'>
+								IP Address
 							</NavLink>
 						</li>
 						<li className='nav-item'>
