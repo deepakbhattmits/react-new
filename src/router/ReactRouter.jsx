@@ -1,58 +1,64 @@
 /** @format */
 
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from '../components/App';
-import Search from '../components/search';
-import Submit from '../components/submit';
-import SearchRecord from '../components/searchRecord';
-import RegistrationForm from '../components/RegistrationForm';
-
-import RegistrationFormHooks from '../components/RegistrationFormHooks';
-import SimpleForm from '../components/SimpleForm';
-import Header from '../header';
-import Footer from '../footer';
-import ListUsers from '../components/ListUsers';
-import SearchRecipe from '../components/SearchRecipe';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LoadingSpinner from '../components/reusable/LoadingSpinner';
+const App = lazy(() => import('../components/App'));
+const Search = lazy(() => import('../components/search'));
+const Submit = lazy(() => import('../components/submit'));
+const SearchRecord = lazy(() => import('../components/SearchRecord'));
+const RegistrationForm = lazy(() => import('../components/RegistrationForm'));
+const RegistrationFormHooks = lazy(() =>
+	import('../components/RegistrationFormHooks')
+);
+const SimpleForm = lazy(() => import('../components/SimpleForm'));
+const Header = lazy(() => import('../Header'));
+const Footer = lazy(() => import('../Footer'));
+const IPAddress = lazy(() => import('../components/IPAddress'));
+const SearchRecipe = lazy(() => import('../components/SearchRecipe'));
 
 const ReactRouter = () => {
 	// console.log('TEST : ')
 	return (
-		<Router>
-			<div>
-				<Header />
-				<div className='container-fluid'>
-					<Route exact path='/'>
-						<App />
-					</Route>
-					<Route path='/Search'>
-						<Search />
-					</Route>
-					<Route path='/Submit'>
-						<Submit />
-					</Route>
-					<Route path='/searchRecord'>
-						<SearchRecord />
-					</Route>
-					<Route path='/register'>
-						<RegistrationForm />
-					</Route>
-					<Route path='/SimpleForm'>
-						<SimpleForm />
-					</Route>
-					<Route path='/ListUsers'>
-						<ListUsers />
-					</Route>
-					<Route path='/searchR'>
-						<SearchRecipe />
-					</Route>
-					<Route path='/registerHook'>
-						<RegistrationFormHooks />
-					</Route>
+		<Suspense fallback={<LoadingSpinner />}>
+			<Router>
+				<div>
+					<Header />
+					<div className='container-fluid'>
+						<Switch>
+							<Route exact path='/'>
+								<App />
+							</Route>
+							<Route path='/Search'>
+								<Search />
+							</Route>
+							<Route path='/Submit'>
+								<Submit />
+							</Route>
+							<Route path='/searchRecord'>
+								<SearchRecord />
+							</Route>
+							<Route path='/register'>
+								<RegistrationForm />
+							</Route>
+							<Route path='/SimpleForm'>
+								<SimpleForm />
+							</Route>
+							<Route path='/IPAddress'>
+								<IPAddress />
+							</Route>
+							<Route path='/searchR'>
+								<SearchRecipe />
+							</Route>
+							<Route path='/registerHook'>
+								<RegistrationFormHooks />
+							</Route>
+						</Switch>
+					</div>
+					<Footer />
 				</div>
-				<Footer />
-			</div>
-		</Router>
+			</Router>
+		</Suspense>
 	);
 };
 
