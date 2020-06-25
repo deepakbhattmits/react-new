@@ -2,15 +2,14 @@
 
 import React, { Component } from 'react';
 
-import ReactTable from 'react-table';
+import ReactTable from 'react-table-6';
 import { connect } from 'react-redux';
-
+import LoadingSpinner from './reusable/LoadingSpinner';
 import Modal from 'react-responsive-modal';
 import { ReactComponent as DownArrowSVG } from '../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../assets/images/icon-up-arrow.svg';
 
-import 'react-table/react-table.css';
-
+import 'react-table-6/react-table.css';
 class App extends Component {
 	state = {
 		_id: '',
@@ -24,74 +23,72 @@ class App extends Component {
 		msg: '',
 		open: false,
 		showWarning: true,
+		isLoading: false,
 		propsExample: 'Deepak',
-		sortDesc: {}
+		sortDesc: {},
 	};
 
 	renderLoadButton = () => {
-		console.log('TEST :', this.props);
+		console.log('data :', !!this.state.data.length);
 		const { isSignedIn } = this.props.auth;
 
-		if (isSignedIn) {
+		if (isSignedIn && !!!this.state.data.length) {
 			return (
-				<button
-					className='btn btn-primary'
-					color='danger'
-					onLoad={this.getData}
-					onClick={this.getData}>
+				<button className='ui button primary' onClick={this.getData}>
 					Load Data
+					{this.state.isLoading ? <i className='sync icon spin'></i> : ''}
 				</button>
 			);
 		}
 	};
 
-	inputHandleChange = e => {
+	inputHandleChange = (e) => {
 		// this.setState({value: e.target.value});
 	};
-	inputHandleChangename = e => {
+	inputHandleChangename = (e) => {
 		this.setState({
-			name: e.target.value
+			name: e.target.value,
 		});
 	};
-	inputHandleChangeemail = e => {
+	inputHandleChangeemail = (e) => {
 		this.setState({
-			email: e.target.value
+			email: e.target.value,
 		});
 	};
-	inputHandleChangegender = e => {
+	inputHandleChangegender = (e) => {
 		this.setState({
-			gender: e.target.value
-		});
-	};
-
-	inputHandleChangephone = e => {
-		this.setState({
-			phone: e.target.value
+			gender: e.target.value,
 		});
 	};
 
-	handleSubmit = e => {
+	inputHandleChangephone = (e) => {
+		this.setState({
+			phone: e.target.value,
+		});
+	};
+
+	handleSubmit = (e) => {
 		e.preDefault();
 
 		this.setState({
 			name: e.target.name.value,
 			gender: e.target.gender.value,
 			Mobile: e.target.phone.value,
-			email: e.target.email.value
+			email: e.target.email.value,
 		});
 
 		fetch('http://localhost:8080/api/contacts/:' + this.state._id, {
 			method: 'put',
 			body: JSON.stringify(this.state),
 			headers: {
-				'Content-Type': 'application/json'
-			}
+				'Content-Type': 'application/json',
+			},
 		})
-			.then(res => res.json())
-			.then(response => {
+			.then((res) => res.json())
+			.then((response) => {
 				// console.log('Success:', JSON.stringify(response));
 			})
-			.catch(error => {
+			.catch((error) => {
 				// console.error('Error:', error);
 			});
 	};
@@ -102,10 +99,10 @@ class App extends Component {
 	onCloseModal = () => {
 		this.setState({ open: false });
 		this.setState({
-			msg: ''
+			msg: '',
 		});
 	};
-	handleChange = e => {
+	handleChange = (e) => {
 		this.onOpenModal();
 
 		this.setState({
@@ -114,29 +111,42 @@ class App extends Component {
 			email: e['email'],
 			phone: e['phone'],
 			gender: e['gender'],
-			create_date: e['create_date']
+			create_date: e['create_date'],
 		});
 
 		this.setState({ value: e['Username'] });
 	};
 
-	deleteRow = e => {};
+	deleteRow = (e) => {};
 
-	getData = () => {
-		fetch(
-			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
-		)
-			.then(response => response.json())
+	// getData = () => {
+	// 	fetch(
+	// 		'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
+	// 	)
+	// 		.then(response => response.json())
 
-			.then(json => {
-				// console.log('pre test : ', json, 'TEST : ', json.data);
-				this.setState({ data: json });
-			})
-			.catch(function(error) {
-				// console.log('error:', error);
-			});
+	// 		.then(json => {
+	// 			// console.log('pre test : ', json, 'TEST : ', json.data);
+	// 			this.setState({ data: json });
+	// 		})
+	// 		.catch(function(error) {
+	// 			// console.log('error:', error);
+	// 		});
+	// };
+	isLoading = () => {
+		console.log('here :');
+		this.setState({ isLoading: false });
 	};
-	sortFunction = e => {
+	getData = async () => {
+		this.setState({ isLoading: true });
+		const respose = await fetch(
+			'https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/movies'
+		);
+		const data = await respose.json();
+		this.setState({ data: data }, () => this.isLoading());
+	};
+
+	sortFunction = (e) => {
 		// console.log('option : ', e);
 		const sortDesc = { [e[0].id]: e[0].desc };
 		this.setState({ sortDesc });
@@ -148,7 +158,7 @@ class App extends Component {
 			{
 				// Header: 'Director Name',
 				accessor: 'director_name', // String-based value accessors!,
-				Header: rowInfo => {
+				Header: (rowInfo) => {
 					//  console.log(
 					// 		'Director Name - SORT : ',
 					// 		rowInfo,
@@ -171,12 +181,12 @@ class App extends Component {
 							/>
 						</>
 					);
-				}
+				},
 			},
 			{
 				// Header: 'Movie Title',
 				accessor: 'movie_title', // String-based value accessors!
-				Header: rowInfo => {
+				Header: (rowInfo) => {
 					// console.log('SORT : ', rowInfo, this.state.sortDesc);
 					return (
 						<>
@@ -194,12 +204,12 @@ class App extends Component {
 							/>
 						</>
 					);
-				}
+				},
 			},
 			{
 				// Header: 'Country',
 				accessor: 'country', // String-based value accessors!
-				Header: rowInfo => {
+				Header: (rowInfo) => {
 					// console.log('SORT : ', rowInfo, this.state.sortDesc);
 					return (
 						<>
@@ -217,12 +227,12 @@ class App extends Component {
 							/>
 						</>
 					);
-				}
+				},
 			},
 			{
 				// Header: 'Plot Keywords',
 				accessor: 'plot_keywords', // String-based value accessors!
-				Header: rowInfo => {
+				Header: (rowInfo) => {
 					// console.log('SORT : ', rowInfo, this.state.sortDesc);
 					return (
 						<>
@@ -240,12 +250,12 @@ class App extends Component {
 							/>
 						</>
 					);
-				}
+				},
 			},
 			{
 				// Header: 'Title Year',
 				accessor: 'title_year', // String-based value accessors!
-				Header: rowInfo => {
+				Header: (rowInfo) => {
 					// console.log('SORT : ', rowInfo, this.state.sortDesc);
 					return (
 						<>
@@ -263,12 +273,12 @@ class App extends Component {
 							/>
 						</>
 					);
-				}
+				},
 			},
 			{
 				// Header: 'Content Rating',
 				accessor: 'content_rating', // String-based value accessors!
-				Header: rowInfo => {
+				Header: (rowInfo) => {
 					// console.log('SORT : ', rowInfo, this.state.sortDesc);
 					return (
 						<>
@@ -286,8 +296,8 @@ class App extends Component {
 							/>
 						</>
 					);
-				}
-			}
+				},
+			},
 		];
 		return (
 			<div className='container-fluid'>
@@ -310,7 +320,7 @@ class App extends Component {
 						<ReactTable
 							data={this.state.data}
 							columns={columns}
-							onSortedChange={e => {
+							onSortedChange={(e) => {
 								this.sortFunction(e);
 							}}
 							className='react-table'
@@ -339,7 +349,7 @@ class App extends Component {
 											name='name'
 											value={this.state.name}
 											onChange={this.inputHandleChangename.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -355,7 +365,7 @@ class App extends Component {
 											name='email'
 											value={this.state.email}
 											onChange={this.inputHandleChangeemail.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -371,7 +381,7 @@ class App extends Component {
 											name='phone'
 											value={this.state.phone}
 											onChange={this.inputHandleChangephone.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -387,7 +397,7 @@ class App extends Component {
 											name='gender'
 											value={this.state.gender}
 											onChange={this.inputHandleChangegender.bind(this)}
-											ref={node => (this.inputNode = node)}
+											ref={(node) => (this.inputNode = node)}
 										/>
 									</div>
 								</div>
@@ -414,9 +424,9 @@ class App extends Component {
 		);
 	}
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
-		auth: state.auth
+		auth: state.auth,
 	};
 };
 export default connect(mapStateToProps, null)(App);
