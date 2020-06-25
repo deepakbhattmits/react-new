@@ -1,0 +1,42 @@
+/** @format */
+
+$color-black: #000000;
+$color-white: #fff;
+$font-color: pink;
+$bg-color: cyan;
+$color-blue: #9fa4b3;
+$heading-color: #818cac;
+$error-color: red;
+
+/* Defaults */
+:root {
+	--color-error: #{$error-color};
+	--color-scheme-background: #{$bg-color};
+	--color-scheme-text-color: #{$font-color};
+	--color-scheme-blue: #{$color-blue};
+	--color-scheme-black: #{$color-black};
+	--color-scheme-white: #{$color-white};
+	--color-scheme-light-blue: #{$heading-color};
+}
+
+/* Light mode browser*/
+// @media (prefers-color-scheme: light) {
+//     :root {
+//         --color-scheme-background: #{$primary-color};
+//         --color-scheme-text-color:  #{$font-color};
+//     }
+// }
+
+/* -- Dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-error: #{invert($error-color)};
+		--color-scheme-background: #{invert($bg-color)};
+		--color-scheme-text-color: #{invert($font-color)};
+		--color-scheme-blue: #{invert($color-blue)};
+		--color-scheme-black: #{invert($color-black)};
+		--color-scheme-white: #{invert($color-white)};
+
+		--color-scheme-light-blue: #{invert($heading-color)};
+	}
+}
