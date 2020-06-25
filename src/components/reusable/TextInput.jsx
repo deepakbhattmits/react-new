@@ -5,7 +5,8 @@ import { Form } from 'react-bootstrap';
 
 const TextInput = ({ placeholder, value, handleChange }) => {
 	return (
-		<Form.Group controlId='IP'>
+		// <Form.Group controlId='IP'>
+		<Form.Group>
 			<Form.Label>IP address</Form.Label>
 			<Form.Control
 				className={`input`}
