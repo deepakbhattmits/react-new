@@ -1,5 +1,5 @@
 /** @format */
-
+@import './settings';
 .ReactTable {
 	&.react-table {
 		border: none;
@@ -9,11 +9,11 @@
 			}
 		}
 		.icon {
-			border: 1px solid #000;
+			border: 1px solid var(--color-scheme-black);
 			border-left: none;
 			height: 30px;
 			width: 30px;
-			background: #ccc;
+			background: var(--color-scheme-white);
 			&.--arrow {
 				height: 15px;
 				width: 15px;
@@ -39,7 +39,7 @@
 			> .rt-tr-group {
 				> .-odd,
 				> .-even {
-					// 	background-color: #000;
+					// 	background-color: var(--color-scheme-black);
 					// 	color: #fff;
 					padding: 10px 5px;
 
@@ -151,3 +151,49 @@
 }
 
 // nav styles e
+.container-ipaddress {
+	display: grid;
+	grid-template-columns: 20% 50% auto;
+}
+.input-wrapper {
+	display: grid;
+	grid-template-columns: 50% auto;
+	align-items: center;
+	grid-gap: 10px;
+}
+.spin {
+	animation: App-logo-spin infinite 1s linear;
+	left: 15px;
+	position: relative;
+}
+.custom-dropdown {
+	.btn {
+		background-color: var(--color-scheme-white);
+		color: var(--color-scheme-black);
+		text-align: left;
+		&:first-child {
+			width: 150px;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-right: none;
+		}
+		&:nth-child(2) {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-left: none;
+		}
+		&:focus,
+		&:hover,
+		&:active {
+			outline: none;
+			box-shadow: none;
+			background: transparent;
+			color: var(--color-scheme-black);
+		}
+	}
+
+	.selected {
+		background: var(--color-scheme-blue);
+		color: var(--color-scheme-white);
+	}
+}
