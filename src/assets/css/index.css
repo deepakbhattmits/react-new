@@ -46,9 +46,9 @@
 		transform: rotate(360deg);
 	}
 }
-body {
+/* body {
 	background-color: #ededed;
-}
+} */
 
 .hi {
 	width: 50px;
