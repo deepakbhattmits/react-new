@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 import ReactTable from 'react-table-6';
 import { connect } from 'react-redux';
-import LoadingSpinner from './reusable/LoadingSpinner';
+// import LoadingSpinner from './reusable/LoadingSpinner';
 import Modal from 'react-responsive-modal';
 import { ReactComponent as DownArrowSVG } from '../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../assets/images/icon-up-arrow.svg';
