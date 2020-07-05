@@ -22,7 +22,6 @@ const IPAddress = () => {
 		event.preventDefault();
 
 		if (selectedOption === 'Basic' && IPcollection.length <= 4) {
-			console.log('BASIC : ', IPcollection.indexOf(ip) >= 0);
 			IPcollection.indexOf(ip) >= 0
 				? setError('Duplicate Entry')
 				: setIPCollection([...IPcollection, ip]);
