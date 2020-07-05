@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, ListGroup } from 'react-bootstrap';
 import DropDownComponent from './reusable/DropDownComponent';
 import ListItem from './reusable/ListItem';
 import TextInput from './reusable/TextInput';
@@ -9,6 +9,7 @@ import Save from './reusable/Save';
 
 const IPAddress = () => {
 	const [selectedOption, setSelectedOption] = useState('Select Option');
+	const [error, setError] = useState('');
 	const [ip, setIP] = useState();
 	const [IPcollection, setIPCollection] = useState([]);
 	const [isValid, setIsValid] = useState(false);
@@ -21,11 +22,17 @@ const IPAddress = () => {
 		event.preventDefault();
 
 		if (selectedOption === 'Basic' && IPcollection.length <= 4) {
-			setIPCollection([...IPcollection, ip]);
+			console.log('BASIC : ', IPcollection.indexOf(ip) >= 0);
+			IPcollection.indexOf(ip) >= 0
+				? setError('Duplicate Entry')
+				: setIPCollection([...IPcollection, ip]);
 		} else if (selectedOption === 'Premium' && IPcollection.length <= 9) {
-			setIPCollection([...IPcollection, ip]);
+			IPcollection.indexOf(ip) >= 0
+				? setError('Duplicate Entry')
+				: setIPCollection([...IPcollection, ip]);
 		}
 		setIP();
+
 		setIsValid(false);
 	};
 	const handleChange = (e) => {
@@ -40,7 +47,17 @@ const IPAddress = () => {
 	const handleInputChange = (e) => {
 		const { value } = e.target;
 		setIsValid(isValidIP(value));
+		if (!!error) {
+			setError('');
+		}
+		if (!isValidIP(value)) {
+			setError('Not a valid IP address');
+		}
 		setIP(value);
+	};
+	const handleRemove = (data) => {
+		const filteredList = IPcollection.filter((item) => item !== data);
+		setIPCollection(filteredList);
 	};
 	return (
 		<div className='container-ipaddress'>
@@ -52,34 +69,36 @@ const IPAddress = () => {
 			{selectedOption !== 'Select Option' ? (
 				<>
 					<div className='input-wrapper'>
-						<span>
-							Remaining IP's
+						<>
 							{arr.find((item) => item.name === selectedOption).access -
-								IPcollection.length}
-						</span>
-						{arr.find((item) => item.name === selectedOption).access -
-						IPcollection.length ? (
-							<Form
-								className='inline-form'
-								noValidate
-								validated={isValid}
-								onSubmit={handleSubmit}>
-								<TextInput
-									required
-									handleChange={handleInputChange}
-									value={!!ip ? ip : ''}
-									placeholder='123.123.123.123'
-								/>
+							IPcollection.length ? (
+								<Form onSubmit={handleSubmit}>
+									<TextInput
+										required
+										handleChange={handleInputChange}
+										value={!!ip ? ip : ''}
+										error={error}
+										placeholder='123.123.123.123'
+									/>
 
-								<Form.Group controlId='save'>
-									<Save isValid={isValid} type='submit'>
-										<i className='save icon'></i>
-									</Save>
-								</Form.Group>
-							</Form>
-						) : (
-							'limit reached'
-						)}
+									<Form.Group controlId='save'>
+										<Save isValid={isValid} type='submit'>
+											<i className='save icon'></i>
+										</Save>
+									</Form.Group>
+								</Form>
+							) : (
+								`Usertype ${selectedOption} have to add ${
+									arr.find((item) => item.name === selectedOption).access
+								} list only - limit reached`
+							)}
+							<span>
+								{`Remaining IP's : ${
+									arr.find((item) => item.name === selectedOption).access -
+									IPcollection.length
+								}`}
+							</span>
+						</>
 					</div>
 
 					<div className='listIP'>
@@ -91,9 +110,9 @@ const IPAddress = () => {
 								Addresses
 							</strong>
 						</span>
-						<ul>
-							<ListItem items={IPcollection} />
-						</ul>
+						<ListGroup>
+							<ListItem items={IPcollection} handleRemove={handleRemove} />
+						</ListGroup>
 					</div>
 				</>
 			) : (
