@@ -157,8 +157,8 @@
 }
 .input-wrapper {
 	display: grid;
-	grid-template-columns: 50% auto;
-	align-items: center;
+	grid-template-columns: 0.5fr auto;
+	// align-items: center;
 	grid-gap: 10px;
 }
 .spin {
