@@ -3,9 +3,8 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-const TextInput = ({ placeholder, value, handleChange }) => {
+const TextInput = ({ placeholder, value, handleChange, error }) => {
 	return (
-		// <Form.Group controlId='IP'>
 		<Form.Group>
 			<Form.Label>IP address</Form.Label>
 			<Form.Control
@@ -16,7 +15,7 @@ const TextInput = ({ placeholder, value, handleChange }) => {
 				placeholder={placeholder}
 				value={value}
 			/>
-			<Form.Text className='invalid-feedback'>please enter valid IP</Form.Text>
+			<Form.Text>{error}</Form.Text>
 		</Form.Group>
 	);
 };
