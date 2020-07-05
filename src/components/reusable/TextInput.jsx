@@ -15,7 +15,10 @@ const TextInput = ({ placeholder, value, handleChange, error }) => {
 				placeholder={placeholder}
 				value={value}
 			/>
-			<Form.Text>{error}</Form.Text>
+
+			<Form.Text className='invalid-feedback show' style={{ display: 'block' }}>
+				{error}
+			</Form.Text>
 		</Form.Group>
 	);
 };
