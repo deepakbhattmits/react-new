@@ -49,8 +49,7 @@ class ScrollApp extends Component {
 	render() {
 		return (
 			<div id='BottomTopScroll' className='long'>
-				<ScrollButton scrollStepInPx='50' delayInMs='25.66' />{' '}
-				{/* upper container */}
+				<ScrollButton scrollStepInPx='50' delayInMs='25.66' />
 			</div>
 		);
 	}
