@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingSpinner from '../components/reusable/LoadingSpinner';
 const App = lazy(() => import('../components/App'));
 const Search = lazy(() => import('../components/search'));
-const Submit = lazy(() => import('../components/submit'));
+const Submit = lazy(() => import('../components/Submit'));
 const SearchRecord = lazy(() => import('../components/SearchRecord'));
 const RegistrationForm = lazy(() => import('../components/RegistrationForm'));
 const RegistrationFormHooks = lazy(() =>
@@ -18,7 +18,7 @@ const IPAddress = lazy(() => import('../components/IPAddress'));
 const SearchRecipe = lazy(() => import('../components/SearchRecipe'));
 
 const ReactRouter = () => {
-	// console.log('TEST : ')
+	// console.log('TEST :  ')
 	return (
 		<Suspense fallback={<LoadingSpinner />}>
 			<Router>
