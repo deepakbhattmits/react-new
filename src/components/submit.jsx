@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import $ from 'jquery';
+// Submit
 class Submit extends Component {
 	constructor(props) {
 		super(props);
