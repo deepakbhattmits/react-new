@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from 'react';
-
+//SearchResult
 class SearchResult extends Component {
 	renderResult() {
 		if (!this.props.data.recipes) {
