@@ -1,15 +1,16 @@
 /** @format */
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { listUser } from '../actions';
 
-class ListUser extends Component {
-	componentDidMount() {
-		this.props.listUser();
-	}
-	renderCard() {
-		return this.props.users.map(
+const ListUser = () => {
+	console.log('curious');
+	const dispatch = useDispatch();
+	const users = useSelector((state) => state.users);
+
+	const renderCard = () => {
+		return users.map(
 			({ id, firstName, lastName, email, employed, city, notes }) => {
 				return (
 					<div className='card' key={id}>
@@ -24,15 +25,12 @@ class ListUser extends Component {
 				);
 			}
 		);
-	}
-	render() {
-		// console.log('TEST :', this.props.isSignedIn);
-		return <div className='ui cards'>{this.renderCard()}</div>;
-	}
-}
-const mapStateToProps = (state) => {
-	return {
-		users: Object.values(state.users),
 	};
+	useEffect(() => {
+		dispatch(listUser());
+	}, [dispatch]);
+
+	return <div className='ui cards'>{renderCard}</div>;
 };
-export default connect(mapStateToProps, { listUser })(ListUser);
+
+export default ListUser;
