@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-
+// SearchBar
 const SearchBar = ({ getRecipe }) => {
 	// console.log(' TEST :', getRecipe);
 	return (
