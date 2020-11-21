@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createUser } from '../actions';
-
+// SimpleForm
 class SimpleForm extends Component {
 	renderError({ touched, error }) {
 		if (touched && error) {
