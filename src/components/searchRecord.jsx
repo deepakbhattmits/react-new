@@ -13,7 +13,7 @@ import img4 from '../assets/images/image4.jpg';
 import img5 from '../assets/images/image5.jpg';
 import img6 from '../assets/images/image6.jpg';
 import img7 from '../assets/images/image7.jpg';
-
+//SearchRecord
 class SearchRecord extends Component {
 	constructor(props) {
 		super(props);
