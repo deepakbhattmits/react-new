@@ -146,10 +146,4 @@ const RegistrationFormHooks = () => {
 		</div>
 	);
 };
-// const mapStatetoProps = (state) => {
-//     return {
-//         auth: state.auth
-//     }
-// }
-// export default connect(mapStatetoProps, null)(RegistrationForm);
 export default RegistrationFormHooks;
