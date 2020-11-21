@@ -7,7 +7,7 @@ import Modal from 'react-responsive-modal';
 
 import $ from 'jquery';
 // import 'react-table/react-table.css';
-
+// Search
 class Search extends Component {
 	constructor(props) {
 		super(props);
