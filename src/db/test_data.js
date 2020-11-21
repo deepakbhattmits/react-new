@@ -1977,7 +1977,7 @@ export const data = [
 		name: 'magnam earum qui eaque sunt excepturi',
 		email: 'Jaycee.Turner@euna.name',
 		body:
-			'quia est sed eos animi optio dolorum\nconsequatur reiciendis exercitationem ipsum nihil omnis\nbeatae sed corporis enim quisquam\net blanditiis qui nihil',
+			'quia est sed eos animi optio dolorum\nconsequatur reiciendis exercitationem ipsum nihil omnis\nbeatae sed corporis enim quisquam\net blanditiis qui nihil.',
 	},
 	{
 		postId: 50,
