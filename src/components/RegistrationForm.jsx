@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+//RegistrationForm
 class RegistrationForm extends Component {
 	state = {
 		fields: {},
@@ -83,7 +83,7 @@ class RegistrationForm extends Component {
 	};
 	render() {
 		const { isSignedIn } = this.props.auth;
-		console.log(`user is isSignedIn : ${isSignedIn}`);
+		// console.log(`user is isSignedIn : ${isSignedIn}`);
 		return (
 			<div>
 				<div id='register' className='register-form'>
