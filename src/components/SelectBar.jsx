@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-
+// SelectBar
 const SelectBar = (props) => {
 	// console.log(`NEW SELECT BAR : ${props.getOption}`);
 	return (
