@@ -1,10 +1,12 @@
+/** @format */
+
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import authReducer from './authReducer';
-import userReducer  from './userReducer';
-
+import userReducer from './userReducer';
+//grouped all reducers
 export default combineReducers({
-    auth : authReducer,
-    form : formReducer,
-    users: userReducer
-})
+	auth: authReducer,
+	form: formReducer,
+	users: userReducer,
+});
