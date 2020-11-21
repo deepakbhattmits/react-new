@@ -65,6 +65,7 @@ const IPAddress = () => {
 				selectedOption={selectedOption}
 				handleChange={handleChange}
 			/>
+
 			{selectedOption !== 'Select Option' ? (
 				<>
 					<div className='input-wrapper'>
